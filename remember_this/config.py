@@ -29,6 +29,7 @@ class Settings(BaseSettings):
     # These are guesses and will be revisited after experimentation
     strict_threshold: float = Field(default=0.65, ge=0.0, le=1.0)
     relaxed_threshold: float = Field(default=0.5, ge=0.0, le=1.0)
+    embedding_retrieval_limit: int = Field(default=20)
 
     rate_limit_per_user_per_hour: int = Field(default=30, gt=0)
 

@@ -41,6 +41,15 @@ exactly one retry at a **relaxed** threshold, with an LLM relevance check decidi
 candidates can actually answer the question; abstain if it says no. No rewriting, no reranking, no
 lexical leg in v1 — each becomes a measured experiment later.
 
+**Amendment (implementation time):** the relevance check permits one bounded common-sense inference, not
+strictly "does the text state the answer". A candidate that implies the answer via a single hop of
+widely-shared world knowledge (e.g. "Domino's" implies "a pizza place") counts as relevant; anything
+requiring speculative or debatable knowledge (e.g. inferring someone is "a good manager" from "the
+meeting went well") does not. See `remember_this/llm/prompts/relevance.py` for the exact rule and
+boundary examples. This was a deliberate scope widening, not a drift: rejecting all inference made the
+guardrail stricter than the product needs, since real questions ("what pizza places have I been to")
+depend on exactly this kind of everyday inference.
+
 ## Why
 
 Every deferral here is a deferral *into an experiment with a number attached*, which is the point of the
@@ -65,7 +74,7 @@ Phase 0 demands verbatim fidelity — expect this to show up in the eval. Cosine
 calibrated confidence, so threshold tuning will be noisier than it looks. Retry needs something to
 vary, which pushes against the verbatim-query rule.
 
-Foreclosed for v1: filtered retrieval, date narrowing, multi-hop.
+Foreclosed for v1: filtered retrieval, date narrowing, multi-hop reasoning (more than one inference step).
 
 ## How this will be measured
 

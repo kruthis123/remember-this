@@ -49,7 +49,9 @@ Exactly one extra pass. On a first-pass miss:
 
 1. Re-search with a **lowered threshold** (the relaxed threshold).
 2. Pass the weaker candidates to an **LLM relevance check**: does any of this actually answer the
-   question? Not "is it topically similar" but "can the question be answered from this".
+   question, directly or via one bounded common-sense inference? Not "is it topically similar", and not
+   unlimited speculation either — see the amendment in ADR-004 and the prompt's boundary examples
+   (Domino's/pizza accepted; "good manager" from one positive meeting rejected).
 3. If the check says yes, answer from it. If no, abstain.
 
 No third pass. The query is never rewritten, so the verbatim rule holds throughout.
