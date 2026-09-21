@@ -12,9 +12,9 @@ they are teaching documents assuming no prior familiarity with the libraries inv
 |---|---|---|---|
 | 1 | Repo skeleton, uv setup, dependencies, `config.py` | done | `docs/build/step-01-skeleton.md` |
 | 2 | Data layer — Postgres schema, pgvector, `repository.py` | done | `docs/build/step-02-data-layer.md` |
-| 3 | Extraction — raw message to atomic facts, structured LLM output | next | — |
-| 4 | Retrieval — embeddings, vector search, strict/relaxed thresholds | not started | — |
-| 5 | Answer generation — citation, abstention | not started | — |
+| 3 | Extraction — raw message to atomic facts, structured LLM output | done | `docs/build/step-03-extraction.md` |
+| 4 | Retrieval — embeddings, vector search, strict/relaxed thresholds | in progress | `docs/build/step-04-retrieval.md` |
+| 5 | Answer generation — citation, abstention | next | — |
 | 6 | Agent wiring — Pydantic AI, the three tools, loop bounds | not started | — |
 | 7 | Observability — Langfuse tracing across every step | not started | — |
 | 8 | Eval dataset generation and harness | not started | — |
