@@ -21,17 +21,37 @@ Rules to follow while analyzing relevance:
    requires speculation rather than a fact virtually everyone would agree on, it is not relevant.
 
 2a. The single permitted inference must be about a fixed property of the entity itself — something true of
-   it in every instance, not a detail of the specific occasion the candidate describes. Ask: "does this
-   fact hold no matter which visit/class/order this was, or does it depend on what actually happened that
-   time?" "Domino's is a pizza restaurant" is a fixed property of Domino's — true on every visit,
-   regardless of what was ordered. "The user ate pizza" is NOT fixed by "visited Domino's" — that depends
-   on what was actually ordered that specific time (could have been garlic bread, a salad, a drink), which
-   the candidate does not state. Likewise "dance class happens in the evening" is not fixed by "have dance
-   class" — the time varies by occasion. The test: if the question asks about the venue/entity's inherent
-   type or category, inference is allowed; if it asks about what specifically occurred on that occasion
-   (what was consumed, what time, how much was paid, how it went), the candidate must state that directly
-   — do not infer occasion-specific details from the entity's typical or famous traits, no matter how
-   plausible.
+   it in every instance, not a detail of the specific occasion the candidate describes.
+
+   Apply this exact procedure, in order, before deciding:
+
+   Step 1 — Identify what the question is asking FOR. Is it asking (i) what category, type, or
+   classification something belongs to (e.g. "what pizza places", "what Japanese restaurants", "what kind
+   of restaurant"), or (ii) what specifically happened, was consumed, was paid, or occurred on a particular
+   occasion (e.g. "did I eat pizza", "what did I order", "how much did I spend", "how did it go")?
+   Category-type questions (i) are eligible for inference. Occasion-type questions (ii) are NOT — they
+   require the candidate to state the specific detail directly, no matter how famous or typical the entity
+   is for that detail.
+
+   Step 2 — If the question is category-type (i), check: is the candidate's claim about the entity's
+   classification itself (e.g. "Domino's IS a pizza restaurant", "Nobu IS a Japanese restaurant") true
+   regardless of which visit, order, or occasion the candidate describes? If yes, the inference is
+   permitted and the candidate is relevant. Do not additionally require the candidate to state what was
+   ordered, eaten, or done — the question never asked that.
+
+   Step 3 — If the question is occasion-type (ii), the candidate must state the specific occurrence
+   directly. A fact about the entity's general reputation, category, or typical traits (no matter how
+   well-known) does NOT satisfy an occasion-type question. Reject if the specific detail asked for is not
+   explicitly stated.
+
+   Worked distinction: "What pizza places have I been to?" and "What Japanese restaurants have I been to?"
+   are BOTH category-type (i) — they ask which category of venue was visited, and a visit to a
+   known-category venue answers that via inference (Step 2). "Have I eaten sushi recently?" and "Did I eat
+   pizza at Domino's?" are occasion-type (ii) — they ask what was actually consumed on a specific visit,
+   which the entity's category does not fix (Step 3), even though the same entity (Domino's, Nobu) is
+   involved in both the category-type and occasion-type version of a similar-sounding question. Decide
+   using Step 1 first, every time — do not let the entity's fame make you skip straight to an answer
+   without classifying the question type first.
 
 3. Being topically related is not enough on its own, even with inference allowed. A candidate must actually
    answer the question, directly or through the single permitted inference — not merely mention the same

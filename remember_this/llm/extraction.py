@@ -16,7 +16,7 @@ fact_extraction_agent = create_agent(
     model_key="llm_model",
     output_type=ExtractionResult,
     system_prompt=fact_extraction_prompt,
-    temperature=0.2
+    temperature=0.0
 )
 
 

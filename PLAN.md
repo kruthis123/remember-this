@@ -15,8 +15,8 @@ they are teaching documents assuming no prior familiarity with the libraries inv
 | 3 | Extraction — raw message to atomic facts, structured LLM output | done | `docs/build/step-03-extraction.md` |
 | 4 | Retrieval — embeddings, vector search, strict/relaxed thresholds | done | `docs/build/step-04-retrieval.md` |
 | 5 | Answer generation — citation, abstention | done | `docs/build/step-05-answer-generation.md` |
-| 6 | Agent wiring — Pydantic AI, the three tools, loop bounds | in progress | `docs/build/step-06-agent-wiring.md` |
-| 7 | Observability — Langfuse tracing across every step | not started | — |
+| 6 | Agent wiring — Pydantic AI, the two tools, loop bounds | done (clarification tool deferred, see ADR-002 amendment) | `docs/build/step-06-agent-wiring.md` |
+| 7 | Observability — Langfuse tracing across every step | next | — |
 | 8 | Eval dataset generation and harness | not started | — |
 | 9 | Telegram bot — webhook, handlers, inline keyboards, idempotency | not started | — |
 | 10 | Deploy — Dockerfile, GitHub Actions on tag, Cloud Run | not started | — |

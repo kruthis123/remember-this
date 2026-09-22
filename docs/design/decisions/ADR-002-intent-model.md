@@ -68,3 +68,17 @@ working. Unclassifiable rate on real traffic.
 
 - Clarification fires on more than a small fraction of everyday messages.
 - Family users repeatedly attempt follow-up questions, indicating statelessness is the wrong call.
+
+## Amendment (step 6, implementation time) — clarification tool not built in v1
+
+`request_clarification` was not implemented when the agent was wired up (`docs/design/decisions/ADR-005`,
+Phase 4). The agent has only `save_memories` and `search_memories`; on ambiguous input the prompt instructs
+it to prefer `search_memories` over guessing `save_memories`, since an incorrect search abstains harmlessly
+while an incorrect save silently corrupts memory. This narrows the risk on one side of the ambiguity but
+does not eliminate it on the other — an ambiguous message that should have been a question can still be
+wrongly guessed as a feed and stored. See `docs/build/agent-manual-test-findings.md` for the full note.
+
+This is recorded as an **open deviation**, not a superseding decision: the original reasoning in this ADR
+(clarifying is cheap, both misroute outcomes are expensive) still holds, and the intent is to reconcile this
+before the project is considered feature-complete against its own design docs, likely at step 9 when the
+inline-keyboard mechanism this ADR anticipated for the clarification round trip is built anyway.

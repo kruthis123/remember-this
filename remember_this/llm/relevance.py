@@ -13,7 +13,7 @@ relevance_check_agent = create_agent(
     model_key="llm_model",
     output_type=RelevanceVerdict,
     system_prompt=relevance_check_prompt,
-    temperature=0.2
+    temperature=0.0
 )
 
 async def check_relevance(
