@@ -14,8 +14,8 @@ they are teaching documents assuming no prior familiarity with the libraries inv
 | 2 | Data layer — Postgres schema, pgvector, `repository.py` | done | `docs/build/step-02-data-layer.md` |
 | 3 | Extraction — raw message to atomic facts, structured LLM output | done | `docs/build/step-03-extraction.md` |
 | 4 | Retrieval — embeddings, vector search, strict/relaxed thresholds | done | `docs/build/step-04-retrieval.md` |
-| 5 | Answer generation — citation, abstention | next | — |
-| 6 | Agent wiring — Pydantic AI, the three tools, loop bounds | not started | — |
+| 5 | Answer generation — citation, abstention | done | `docs/build/step-05-answer-generation.md` |
+| 6 | Agent wiring — Pydantic AI, the three tools, loop bounds | in progress | `docs/build/step-06-agent-wiring.md` |
 | 7 | Observability — Langfuse tracing across every step | not started | — |
 | 8 | Eval dataset generation and harness | not started | — |
 | 9 | Telegram bot — webhook, handlers, inline keyboards, idempotency | not started | — |
