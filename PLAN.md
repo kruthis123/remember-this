@@ -16,13 +16,21 @@ they are teaching documents assuming no prior familiarity with the libraries inv
 | 4 | Retrieval — embeddings, vector search, strict/relaxed thresholds | done | `docs/build/step-04-retrieval.md` |
 | 5 | Answer generation — citation, abstention | done | `docs/build/step-05-answer-generation.md` |
 | 6 | Agent wiring — Pydantic AI, the two tools, loop bounds | done (clarification tool deferred, see ADR-002 amendment) | `docs/build/step-06-agent-wiring.md` |
-| 7 | Observability — Langfuse tracing across every step | next | — |
-| 8 | Eval dataset generation and harness | not started | — |
+| 7 | Observability — Langfuse tracing across every step | done (see note below) | `docs/build/step-07-observability.md` |
+| 8 | Eval dataset generation and harness | next | — |
 | 9 | Telegram bot — webhook, handlers, inline keyboards, idempotency | not started | — |
 | 10 | Deploy — Dockerfile, GitHub Actions on tag, Cloud Run | not started | — |
 
 Steps 1–8 produce a working, measured agent with no Telegram involved at all — deliberate, per ADR-001's
 eval-before-bot commitment. Telegram is wired in at step 9, after the eval loop already exists.
+
+**Step 7 known limitation:** only `user_id` reliably surfaces as trace-level metadata in the Langfuse UI.
+Config metadata (`llm_model`, `embedding_model`, `prompt_version`, thresholds) is confirmed sent correctly
+via `propagate_attributes` (verified with `LANGFUSE_DEBUG=1` — the attributes are present in the exported
+OTel span under `langfuse.trace.metadata.*`) but does not render visibly in the UI. Accepted for now since
+these config values are currently static; if any of them change, note the change manually until the UI
+surfacing is resolved or a workaround is found. See `docs/build/agent-manual-test-findings.md` for the
+full investigation.
 
 ## Time expectation
 

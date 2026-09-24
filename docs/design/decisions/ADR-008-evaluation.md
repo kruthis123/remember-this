@@ -25,6 +25,35 @@ a fourth model family, and materially better at indirect phrasing and unambiguou
 generation pipeline in the repo while putting the strongest available author on the part that determines whether
 the metrics mean anything.
 
+**Second amendment (step 7/8 boundary, implementation time): adopt an external benchmark subset for the
+in-scope point-lookup and abstention categories, generate only what it does not cover.** LongMemEval
+(Wu et al., ICLR 2025, arXiv:2410.10813) was found to contain a `single-session-user` question type that is
+structurally identical to this project's point-lookup contract: a fact stated in passing inside a longer,
+multi-topic message, recalled precisely by a later question, with real topical distractors already present
+from the surrounding conversation. Its abstention instances of the same type test discrimination against a
+genuinely adjacent distractor (e.g. asked about a hamster, only a cat was ever mentioned), which is harder to
+author convincingly by hand than it looks.
+
+70 of LongMemEval's 500 instances are in scope (64 `single-session-user` point-lookup + 6 same-type
+abstention); the remaining 430 are excluded because they require capabilities this project explicitly
+scopes out — `knowledge-update` (latest-value, ADR-003 non-goal), `multi-session` (aggregate/multi-hop,
+ADR-001 non-goal), `temporal-reasoning` (ADR-003 non-goal), `single-session-assistant` (fact originates in
+an assistant turn, nothing for this system to have stored), and `single-session-preference` (evaluates
+response-style personalization, not fact recall). See `evals/generate/adapt_longmemeval.py`'s docstring for
+the full per-category reasoning and the adaptation procedure (only user turns kept; `has_answer`-flagged
+turns become the retrieval ground truth).
+
+This does not replace generation — it replaces the *self-authored labelled-case* half of the original plan
+for the categories it covers. The distractor corpus and all case categories LongMemEval does not address
+(verbatim-identifier fidelity, multi-fact splitting per one message, prompt injection, the category-vs-
+occasion inference boundary from `relevance.py` rule 2a) are still generated per the original plan below.
+The externally-authored cases also remove the self-authorship-bias caveat noted above, for the categories
+they cover.
+
+Every adapted case ships with `reviewed: false` and must be read by hand before being trusted — the adapter
+discards assistant turns, which may occasionally remove context a question leans on, and LongMemEval's
+answers are reference strings meant for its own LLM judge, not verified exact-match targets.
+
 ### Ground truth
 **Reference answer only** would make end-to-end failures hard to localise.
 **Expected memory ids only** would not grade answer quality.
@@ -45,12 +74,15 @@ hosted runner, and the automation is not worth fighting that.
 
 ## Decision
 
-LLM-generated dataset, reviewed by hand: a few hundred distractor memories plus 40–60 labelled cases carrying
-expected facts, expected memory ids, a reference answer, and an expected-abstention flag. Nine metric suites
-mixing deterministic assertions and LLM judges. Judge model differs from the system model; generator model
-differs from both where possible. 50 cases hand-labelled to validate judge agreement, reported with a
-chance-corrected statistic. Langfuse-native datasets and experiments, run locally on demand. No-regression gate
-on faithfulness and false-abstention rate. Latest-value cases excluded from the dataset.
+Dataset combines an externally-authored subset with generated cases. 70 point-lookup/abstention cases adapted
+from LongMemEval's `single-session-user` slice (see amendment above), plus generated cases — reviewed by hand
+— for everything LongMemEval doesn't cover: verbatim-identifier fidelity, multi-fact splitting, prompt
+injection, and the category-vs-occasion relevance boundary. A distractor corpus of unrelated memories,
+generated wholesale, still fills out realistic store density. Nine metric suites mixing deterministic
+assertions and LLM judges. Judge model differs from the system model; generator model differs from both where
+possible. 50 cases hand-labelled to validate judge agreement, reported with a chance-corrected statistic.
+Langfuse-native datasets and experiments, run locally on demand. No-regression gate on faithfulness and
+false-abstention rate. Latest-value cases excluded from the dataset.
 
 ## Why
 
@@ -67,7 +99,15 @@ using judges from trusting them, and it is the step most commonly skipped in pro
 ## Consequences
 
 Easy: dataset construction costs an afternoon rather than a weekend; run comparison and score storage come free
-with Langfuse; every metric traces to a component.
+with Langfuse; every metric traces to a component. The LongMemEval subset is externally authored, so it
+strengthens rather than merely maintains the self-authorship-bias mitigation, for the categories it covers.
+
+Hard (new, from the LongMemEval adoption): licence status for the dataset was not confirmed at adoption time —
+treated as research-use-only pending verification, cited in any public writeup. The adapter's user-turns-only
+simplification needs spot-checking, not just assuming, before the 70 cases are trusted. And LongMemEval covers
+only two of the seven case categories `phase-7-evaluation.md` lists as deliberate coverage — the harder-to-
+author categories (verbatim fidelity, multi-fact splitting, injection, inference-boundary cases) are still
+entirely on generation-plus-review, so that discipline still matters exactly as much as originally planned.
 
 Hard: dataset quality now depends entirely on the review step, which is manual and easy to rush. Scores consume
 Hobby quota, so a full sweep has a real budget cost worth measuring before relying on frequent runs. With ~50
@@ -90,3 +130,7 @@ trace-to-dataset loop is actually running.
 - Metric noise makes regressions unreadable — grow the dataset.
 - The procedural gate is skipped more than once — automate it with a hook.
 - University endpoints become reachable from CI — move eval into pull-request checks.
+- LongMemEval's licence turns out to restrict this use — fall back to fully self-authored point-lookup/
+  abstention cases for those two categories.
+- Spot-checking the adapted cases reveals the user-turns-only simplification breaks too many of them —
+  either re-include relevant assistant turns as inert context or drop the affected cases.

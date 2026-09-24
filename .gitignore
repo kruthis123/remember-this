@@ -3,3 +3,8 @@ __pycache__/
 **/__pycache__/
 *.pyc
 .venv
+
+# Third-party eval source data, fetched on demand -- see
+# evals/generate/adapt_longmemeval.py's docstring for the download command.
+# Not committed: large (~15MB), and licence status is unverified.
+evals/data/source/

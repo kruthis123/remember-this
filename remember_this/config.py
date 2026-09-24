@@ -22,7 +22,7 @@ class Settings(BaseSettings):
 
     langfuse_public_key: SecretStr
     langfuse_secret_key: SecretStr
-    langfuse_host: str = Field(default="https://cloud.langfuse.com")
+    langfuse_base_url: str = Field(default="https://cloud.langfuse.com")
 
     prompt_version: str = Field(default="v1")
 
@@ -47,12 +47,15 @@ class Settings(BaseSettings):
 
     @property
     def trace(self) -> dict:
+        # Keys avoid dots: propagate_attributes coerces values to strings and
+        # namespaces keys under langfuse.observation.metadata.*, where dotted
+        # keys nest unpredictably instead of staying flat.
         return {
-            "llm.model": self.llm_model,
-            "embedding.model": self.embedding_model,
+            "llm_model": self.llm_model,
+            "embedding_model": self.embedding_model,
             "prompt_version": self.prompt_version,
-            "retrieval.strict_threshold": self.strict_threshold,
-            "retrieval.relaxed_threshold": self.relaxed_threshold
+            "strict_threshold": str(self.strict_threshold),
+            "relaxed_threshold": str(self.relaxed_threshold),
         }
 
 @lru_cache

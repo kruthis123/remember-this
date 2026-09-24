@@ -5,6 +5,7 @@ from remember_this.llm.relevance import RelevanceVerdict, check_relevance
 from remember_this.retrieval.embeddings import embed_text
 from remember_this.db.repository import search_memories
 from remember_this.config import get_settings
+from remember_this.observability.tracing import langfuse
 
 Settings = get_settings()
 
@@ -19,12 +20,21 @@ async def retrieve(user_id: int, question: str) -> RetrievalOutcome:
     # embed_text takes/returns a list (batch-friendly); a single question is a batch of one.
     [question_embedding] = await embed_text(text_to_embed=[question])
 
-    primary_candidates: list[MemoryMatch] = await search_memories(
-        user_id=user_id,
-        query_embedding=question_embedding,
-        threshold=Settings.strict_threshold,
-        limit=Settings.embedding_retrieval_limit
-    )
+    with langfuse.start_as_current_observation(as_type="span", name="retrieval.strict") as span:
+        primary_candidates: list[MemoryMatch] = await search_memories(
+            user_id=user_id,
+            query_embedding=question_embedding,
+            threshold=Settings.strict_threshold,
+            limit=Settings.embedding_retrieval_limit
+        )
+        span.update(
+            input={"question": question, "threshold": Settings.strict_threshold},
+            output={"candidates": [
+                {"id": m.id, "similarity": m.similarity}
+                for m in primary_candidates
+            ]}
+        )
+    
     if len(primary_candidates) > 0:
         return RetrievalOutcome(
             matches=primary_candidates,
@@ -32,12 +42,21 @@ async def retrieve(user_id: int, question: str) -> RetrievalOutcome:
             retry_occured=False
         )
 
-    secondary_candidates: list[MemoryMatch] = await search_memories(
-        user_id=user_id,
-        query_embedding=question_embedding,
-        threshold=Settings.relaxed_threshold,
-        limit=Settings.embedding_retrieval_limit
-    )
+    with langfuse.start_as_current_observation(as_type="span", name="retrieval.relaxed") as span:
+        secondary_candidates: list[MemoryMatch] = await search_memories(
+            user_id=user_id,
+            query_embedding=question_embedding,
+            threshold=Settings.relaxed_threshold,
+            limit=Settings.embedding_retrieval_limit
+        )
+        span.update(
+            input={"question": question, "threshold": Settings.relaxed_threshold},
+            output={"candidates": [
+                {"id": m.id, "similarity": m.similarity}
+                for m in secondary_candidates
+            ]}
+        )
+
     if len(secondary_candidates) == 0:
         return RetrievalOutcome(
             matches=[],

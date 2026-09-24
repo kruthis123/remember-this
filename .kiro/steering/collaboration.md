@@ -27,6 +27,9 @@ generated eval data, config plumbing. Still wait to be asked.
 - Flag bugs plainly. Do not soften.
 - Distinguish "this is wrong" from "this differs from what I would do".
 - Do not rewrite their code to your style.
+- When writing or editing code, comments must explain the code immediately around them (why this
+  approach, a non-obvious gotcha, what a value means). Do not add comments that point to ADRs, design
+  docs, TODOs, or other files. Explain such context in chat instead, not in the code.
 
 ## Build step write-ups
 

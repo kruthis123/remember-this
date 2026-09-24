@@ -7,6 +7,7 @@ from pydantic_ai.providers.openai import OpenAIProvider
 
 from remember_this.agent.prompt import driver_prompt
 from remember_this.config import get_settings
+import remember_this.observability.tracing
 
 _settings = get_settings()
 
@@ -32,13 +33,12 @@ class UserIdentifier:
     def get_user_id(self) -> int:
         return self.user_id
 
-
 agent = Agent(
     model=OpenAIChatModel(_settings.llm_model, provider=_provider),
     deps_type=UserIdentifier,
     output_type=str,
     system_prompt=driver_prompt,
-    model_settings=ModelSettings(temperature=0.0),
+    model_settings=ModelSettings(temperature=0.0)
 )
 
 # Imported for its side effect: registers save_memories / search_memories on

@@ -6,6 +6,7 @@ from remember_this.retrieval.embeddings import embed_text
 from remember_this.db.repository import save_message_with_memories
 from remember_this.llm.answer import Answer, generate_answer
 from remember_this.retrieval.search import retrieve, RetrievalOutcome
+from remember_this.observability.tracing import langfuse
 
 
 @agent.tool
@@ -26,11 +27,16 @@ async def save_memories(
         for i in range(len(facts))
     ]
 
-    await save_message_with_memories(
-        user_id=ctx.deps.get_user_id(),
-        raw_text=raw_message,
-        facts=formatted_facts
-    )
+    with langfuse.start_as_current_observation(as_type="span", name="db.save_message_with_memories") as span:
+        message_id = await save_message_with_memories(
+            user_id=ctx.deps.get_user_id(),
+            raw_text=raw_message,
+            facts=formatted_facts
+        )
+        span.update(output={
+            "message_id": message_id,
+            "fact_count": len(formatted_facts)
+        })
 
     return extraction_result
 

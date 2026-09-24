@@ -39,6 +39,30 @@ Case categories to cover deliberately:
 would fail the release gate on a limitation chosen on purpose. Stated here so the exclusion is visible rather
 than convenient.
 
+## Dataset sourcing (updated, see ADR-008 second amendment)
+
+Two of the seven categories below — **true absence** and, partially, **clean single-fact store and
+recall** — are sourced from LongMemEval's `single-session-user` slice (`evals/data/longmemeval_in_scope.json`,
+70 cases, produced by `evals/generate/adapt_longmemeval.py`) rather than generated. This is preferable where
+it applies: it is externally authored (no self-authorship bias) and its distractor density comes from real
+multi-topic conversations rather than an invented filler corpus.
+
+**Still entirely dependent on generation** — LongMemEval has no equivalent for these:
+
+| Category | Why LongMemEval doesn't cover it |
+|---|---|
+| messy multi-fact store, each fact recalled separately | its facts are one-per-turn by construction, no multi-fact splitting case exists |
+| exact identifiers and proper nouns (verbatim fidelity) | its evidence turns are prose facts (a degree, a preference), not codes/IDs needing character-exact reproduction |
+| near-duplicate distractors on the same topic | its distractor turns are topically varied, not same-topic near-duplicates |
+| borderline relevance (topically close, does not answer) | closest is the category-vs-occasion boundary this project's own `relevance.py` rule 2a encodes (Domino's/Nobu), which is project-specific and must be authored here |
+| prompt injection cases | not a benchmark concern; sourced from this project's own step-6 findings (`docs/build/agent-manual-test-findings.md`) instead |
+| indirect phrasing ("that Mexican place" for a named restaurant) | present in LongMemEval only incidentally; author dedicated cases to guarantee coverage |
+
+The distractor corpus (a few hundred unrelated memories per simulated user, for populating the store beyond
+what a single case's own context provides) is still generated wholesale as originally planned — LongMemEval's
+"haystack" sessions serve a similar purpose within their own cases but aren't reusable as a separate,
+detachable filler corpus for cases authored outside the benchmark.
+
 ## Generation risks to review for
 
 Human review exists to catch three specific failure modes in generated data:

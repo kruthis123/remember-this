@@ -93,3 +93,33 @@ question from being wrongly guessed as a *feed* and silently mis-stored, which i
 feature-complete against its own design docs — either implement `request_clarification` (step 9's inline
 keyboard mechanism was the planned vehicle for the round trip) or formally amend ADR-002/ADR-005 to record
 the narrower mitigation as the accepted v1 behavior.
+
+## Finding — trace-level config metadata sent correctly, not surfaced in Langfuse UI
+
+**Symptom:** `remember_this/agent/runner.py`'s `run_turn` attaches `hash_user_id(user_id)` and
+`settings.trace` (model, prompt version, thresholds) via `propagate_attributes`. Only the hashed `user_id`
+appears in the Langfuse UI (as the `user` chip at the top of a trace). The config metadata does not appear
+anywhere, including the Raw JSON view of a span.
+
+**Investigation:** confirmed via `LANGFUSE_DEBUG=1` that this is not a data-loss bug. The exported OTel span
+attributes genuinely contain `langfuse.trace.metadata.llm_model`, `langfuse.trace.metadata.prompt_version`,
+etc. — the SDK is sending the data correctly. Two earlier attempts were tried and ruled out along the way:
+passing `metadata=` directly to `start_as_current_observation()`'s constructor produced
+`langfuse.observation.metadata.*` attributes (observation-scoped, not trace-scoped) which also did not
+render; switching to the module-level `propagate_attributes()` function (imported from `langfuse`, not a
+client method) fixed the `user_id` chip and produced the correctly-namespaced
+`langfuse.trace.metadata.*` attributes, confirmed present in the debug log, but the UI still does not
+display them.
+
+**Root cause:** unresolved. Believed to be a UI-rendering gap specific to this Langfuse version/plan
+(`langfuse>=4.15.4`) for non-`user_id` trace metadata, not a code or SDK bug.
+
+**Decision:** accepted for now. The affected values (`llm_model`, `embedding_model`, `prompt_version`,
+`strict_threshold`, `relaxed_threshold`) are currently static, so their absence from the visible trace does
+not block diagnosing an answer today. If any of these values change before the UI surfacing issue is
+resolved, the change must be noted manually (e.g. in a commit message or this file) rather than relied upon
+to be visible in Langfuse.
+
+**Revisit if:** thresholds are swept/changed during step 8's calibration work and need to be
+distinguishable per-trace, or if reproducing a specific past run from its trace alone becomes necessary
+before this is fixed.
