@@ -1,0 +1,106 @@
+[
+  {
+    "case_id": "nd_01",
+    "category": "near_duplicate_distractors",
+    "feed_messages": [
+      "The wifi password at the cabin is Pine-Lodge-77.",
+      "The wifi password at Mom's house is sunflower2020.",
+      "The wifi password at the office is Blu3Harbor!"
+    ],
+    "question": "What's the wifi password at my mother's?",
+    "reference_answer": "sunflower2020",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "nd_02",
+    "category": "near_duplicate_distractors",
+    "feed_messages": [
+      "Priya's birthday is March 3.",
+      "Pranav's birthday is March 13.",
+      "Priyanka's birthday is May 3."
+    ],
+    "question": "When is Priya's birthday?",
+    "reference_answer": "March 3",
+    "check_verbatim": false,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "nd_03",
+    "category": "near_duplicate_distractors",
+    "feed_messages": [
+      "Dentist appointment is on the 14th at 9am.",
+      "Dermatologist appointment is on the 14th at 2pm.",
+      "Eye doctor appointment is on the 4th at 9am."
+    ],
+    "question": "What time is my skin doctor appointment?",
+    "reference_answer": "2pm on the 14th",
+    "check_verbatim": false,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "nd_04",
+    "category": "near_duplicate_distractors",
+    "feed_messages": [
+      "Loved the pad thai at Thai Orchid.",
+      "The pad see ew at Thai Orchid was too sweet.",
+      "The pad thai at Bangkok Kitchen was bland."
+    ],
+    "question": "Which place had the pad thai I didn't enjoy?",
+    "reference_answer": "Bangkok Kitchen",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "nd_05",
+    "category": "near_duplicate_distractors",
+    "feed_messages": [
+      "At the mall I parked on level 2, row F.",
+      "At the hospital I parked on level 4, row F.",
+      "At the airport I parked on level 2, row D."
+    ],
+    "question": "Where did I park at the hospital?",
+    "reference_answer": "level 4, row F",
+    "check_verbatim": false,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "nd_06",
+    "category": "near_duplicate_distractors",
+    "feed_messages": [
+      "Maya's piano teacher is Mrs. Alvarez.",
+      "Maya's math teacher is Mr. Alvarado.",
+      "Leo's piano teacher is Mr. Albright."
+    ],
+    "question": "Who teaches Maya piano?",
+    "reference_answer": "Mrs. Alvarez",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "nd_07",
+    "category": "near_duplicate_distractors",
+    "feed_messages": [
+      "My checking account ends in 4471.",
+      "My savings account ends in 4417.",
+      "My credit card ends in 7144."
+    ],
+    "question": "What are the last four digits of my savings account?",
+    "reference_answer": "4417",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "nd_08",
+    "category": "near_duplicate_distractors",
+    "feed_messages": [
+      "Got Dad a watch for his birthday.",
+      "Got Dad a wallet for Christmas.",
+      "Got my father-in-law a watch for Christmas."
+    ],
+    "question": "What did I get my father for Christmas?",
+    "reference_answer": "a wallet",
+    "check_verbatim": false,
+    "expect_abstention": false
+  }
+]

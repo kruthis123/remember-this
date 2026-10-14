@@ -17,8 +17,8 @@ they are teaching documents assuming no prior familiarity with the libraries inv
 | 5 | Answer generation — citation, abstention | done | `docs/build/step-05-answer-generation.md` |
 | 6 | Agent wiring — Pydantic AI, the two tools, loop bounds | done (clarification tool deferred, see ADR-002 amendment) | `docs/build/step-06-agent-wiring.md` |
 | 7 | Observability — Langfuse tracing across every step | done (see note below) | `docs/build/step-07-observability.md` |
-| 8 | Eval dataset generation and harness | next | — |
-| 9 | Telegram bot — webhook, handlers, inline keyboards, idempotency | not started | — |
+| 8 | Eval dataset generation and harness | in progress | `docs/build/step-08-eval-harness.md` |
+| 9 | Telegram bot — webhook, handlers, inline keyboards, idempotency | next | — |
 | 10 | Deploy — Dockerfile, GitHub Actions on tag, Cloud Run | not started | — |
 
 Steps 1–8 produce a working, measured agent with no Telegram involved at all — deliberate, per ADR-001's

@@ -1,0 +1,90 @@
+[
+  {
+    "case_id": "eid_01",
+    "category": "exact_identifiers",
+    "feed_messages": [
+      "The wifi password at the cabin is tH3-0wL_l1v3s"
+    ],
+    "question": "What's the wifi password up at the cabin?",
+    "reference_answer": "tH3-0wL_l1v3s",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "eid_02",
+    "category": "exact_identifiers",
+    "feed_messages": [
+      "My gym membership number is 0042917."
+    ],
+    "question": "What's my gym membership number?",
+    "reference_answer": "0042917",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "eid_03",
+    "category": "exact_identifiers",
+    "feed_messages": [
+      "The storage unit keypad code is 04*19*77."
+    ],
+    "question": "What's the code for the storage unit keypad?",
+    "reference_answer": "04*19*77",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "eid_04",
+    "category": "exact_identifiers",
+    "feed_messages": [
+      "My new manager's name is Siobhán Ní Dhuibhir."
+    ],
+    "question": "What's my new manager called?",
+    "reference_answer": "Siobhán Ní Dhuibhir",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "eid_05",
+    "category": "exact_identifiers",
+    "feed_messages": [
+      "The bookshop my sister recommended is called Bookmarq."
+    ],
+    "question": "What was the name of the bookshop my sister recommended?",
+    "reference_answer": "Bookmarq",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "eid_06",
+    "category": "exact_identifiers",
+    "feed_messages": [
+      "Our rental car is a silver Corolla, plate 8KRL-2O7. That's the letter O, not a zero."
+    ],
+    "question": "What's the plate number on the rental car?",
+    "reference_answer": "8KRL-2O7",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "eid_07",
+    "category": "exact_identifiers",
+    "feed_messages": [
+      "My passport number is X4471203 and my husband's is X4471230."
+    ],
+    "question": "What's my passport number?",
+    "reference_answer": "X4471203",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "eid_08",
+    "category": "exact_identifiers",
+    "feed_messages": [
+      "My sister's Venmo handle is @nat_wu.88."
+    ],
+    "question": "What's my sister's Venmo?",
+    "reference_answer": "@nat_wu.88",
+    "check_verbatim": true,
+    "expect_abstention": false
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "case_id": "csf_01",
+    "category": "clean_single_fact",
+    "feed_messages": [
+      "My student id is ABCDEF."
+    ],
+    "question": "What is my student id?",
+    "reference_answer": "ABCDEF",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "csf_02",
+    "category": "clean_single_fact",
+    "feed_messages": [
+      "The name of the new burrito place I want to try is Guzman y Gomez."
+    ],
+    "question": "What was the name of that burrito place I wanted to try?",
+    "reference_answer": "Guzman y Gomez",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "csf_03",
+    "category": "clean_single_fact",
+    "feed_messages": [
+      "My final exam ends on Nov 30th."
+    ],
+    "question": "When does my final exam end?",
+    "reference_answer": "Nov 30th",
+    "check_verbatim": false,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "csf_04",
+    "category": "clean_single_fact",
+    "feed_messages": [
+      "My locker combination is 12-34-56."
+    ],
+    "question": "What's my locker combo?",
+    "reference_answer": "12-34-56",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "csf_05",
+    "category": "clean_single_fact",
+    "feed_messages": [
+      "Rent is 1450, due on the 1st of every month."
+    ],
+    "question": "How much is my rent?",
+    "reference_answer": "1450",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "csf_06",
+    "category": "clean_single_fact",
+    "feed_messages": [
+      "My flight back home is UA1823."
+    ],
+    "question": "What's my flight number?",
+    "reference_answer": "UA1823",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "csf_07",
+    "category": "clean_single_fact",
+    "feed_messages": [
+      "I did not like the mac and cheese at Rosetta's."
+    ],
+    "question": "What did I not like at Rosetta's?",
+    "reference_answer": "the mac and cheese",
+    "check_verbatim": false,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "csf_08",
+    "category": "clean_single_fact",
+    "feed_messages": [
+      "My apartment unit is 14-B, on the second floor."
+    ],
+    "question": "What's my apartment unit number?",
+    "reference_answer": "14-B",
+    "check_verbatim": true,
+    "expect_abstention": false
+  }
+]

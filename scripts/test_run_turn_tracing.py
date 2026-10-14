@@ -12,12 +12,13 @@ async def main() -> None:
     try:
         await db.delete_all_memories(USER_ID)
 
-        save_reply = await run_turn(USER_ID, "My student id is ABCDEF")
-        print("save reply:", save_reply)
+        save_turn = await run_turn(USER_ID, "My student id is ABCDEF")
+        print("save reply:", save_turn.reply, "| tool:", save_turn.tool_called)
         print("trace url:", langfuse.get_trace_url())
 
-        search_reply = await run_turn(USER_ID, "What is my student id?")
-        print("\nsearch reply:", search_reply)
+        search_turn = await run_turn(USER_ID, "What is my student id?")
+        print("\nsearch reply:", search_turn.reply, "| tool:", search_turn.tool_called,
+              "| cited:", search_turn.cited_memory_ids)
         print("trace url:", langfuse.get_trace_url())
 
         print("\nhashed_user_id for", USER_ID, "->", hash_user_id(USER_ID))

@@ -1,0 +1,296 @@
+[
+  {
+    "case_id": "csf_01",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant correctly stated the student ID as provided in the stored facts.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant provided the exact student ID mentioned in the reference answer."
+  },
+  {
+    "case_id": "csf_05",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer correctly and accurately reflects the information provided in the stored facts regarding the rent amount.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant provided the correct numerical value from the reference answer."
+  },
+  {
+    "case_id": "csf_07",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer directly restates the information provided in the stored facts without adding any unsupported details.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant correctly identified the specific item mentioned in the reference answer (the mac and cheese) and answered the question accurately."
+  },
+  {
+    "case_id": "csf_08",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer correctly identifies the apartment unit number as 14-B, which is directly stated in the stored facts. There are no unsupported claims.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant provided the exact apartment unit number mentioned in the reference answer."
+  },
+  {
+    "case_id": "msf_02",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The stored facts mention a 'Dentist appointment moved to the 14th', but they do not explicitly state that this appointment is for a 'dental cleaning'. While a dental cleaning is a type of dentist appointment, the assistant's claim that it has nothing recorded about a 'dental cleaning' is faithful because it does not assert an unsupported fact. Furthermore, according to Rule 4, even if the assistant failed to connect the 'dentist appointment' to the user's query about 'dental cleaning', stating that it doesn't have information recorded is considered faithful.",
+    "unsupported_claims": [],
+    "judge_correctness": "incorrect",
+    "correctness_reasoning": "The expected behavior was to provide the answer (ANSWER), as indicated by the reference answer 'the 14th'. The assistant claimed it had nothing recorded about the dental cleaning, which contradicts the existence of the information in the memory. Therefore, the assistant failed to retrieve the correct information."
+  },
+  {
+    "case_id": "msf_05",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer states that it has no record of the bread from the farmers market. While the stored facts contain information about \"Sourdable\" (a type of bread) being stale, Rule 4 specifies that failing to connect a relevant fact (like identifying sourdough as bread) is a correctness problem rather than a faithfulness problem. The assistant did not make an unsupported claim; it simply failed to retrieve/recognize the connection.",
+    "unsupported_claims": [],
+    "judge_correctness": "incorrect",
+    "correctness_reasoning": "The expected behavior was ANSWER, meaning the information should have been retrieved from the memory. The reference answer contains specific information ('the sourdough was stale'), but the assistant responded that it had nothing recorded. Therefore, the assistant failed to provide the correct information."
+  },
+  {
+    "case_id": "msf_06",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer directly reflects the information provided in the stored facts regarding who the Q3 report should be sent to.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant correctly identified the person mentioned in the reference answer (Marcus) and provided a complete sentence answering the user's question."
+  },
+  {
+    "case_id": "msf_08",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer directly reflects the information provided in the stored facts regarding the date of the team offsite.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant provided the correct date as specified in the reference answer."
+  },
+  {
+    "case_id": "eid_01",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer provides the wifi password exactly as it is written in the stored facts. There are no unsupported claims.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant provided the exact password as specified in the reference answer, including the correct casing and special characters."
+  },
+  {
+    "case_id": "eid_04",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer correctly identifies the manager's name as provided in the stored facts, with no discrepancies in spelling or details.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant provided the exact name mentioned in the reference answer, including the correct spelling and special characters."
+  },
+  {
+    "case_id": "eid_05",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer accurately reflects the information provided in the stored facts. The name of the bookshop (Bookmarq) and the person who recommended it (sister) are both explicitly stated in the facts.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant provided the exact name mentioned in the reference answer."
+  },
+  {
+    "case_id": "eid_07",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer correctly and exactly reproduces the passport number provided in the stored facts.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant provided the exact passport number mentioned in the reference answer."
+  },
+  {
+    "case_id": "ip_01",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer correctly identifies Dmitri and his phone number (555-0142) and mentions that he previously fixed the leak under the kitchen sink, all of which are directly stated in the stored facts.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant provides the correct name and phone number as specified in the reference answer. The additional information provided by the assistant does not contradict the reference answer."
+  },
+  {
+    "case_id": "ip_05",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer identifies the spare house key under the green flowerpot by the back door as a backup way in. This information is directly present in the stored facts (\"Spare house key is under the green flowerpot by the back door\"). The assistant does not introduce any new or unsupported details.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant's answer provides the exact information contained in the reference answer, including all key details (spare key, green flowerpot, back door). The addition of the word 'house' does not make the answer incorrect."
+  },
+  {
+    "case_id": "ip_06",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer \"You have been to Nando's\" is directly supported by the stored facts \"Had lunch at Nando's today\" and \"Visited Nando's today\". The assistant does not make any claims about the user that are not present in the facts.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant correctly identified the chicken restaurant mentioned in the reference answer."
+  },
+  {
+    "case_id": "ip_09",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant correctly identifies that the user is flying Qantas based on the stored facts. The claim that Qantas is an Australian airline is a universally true property of the entity mentioned in the facts, which is permitted under Rule 2.",
+    "unsupported_claims": [],
+    "judge_correctness": "incorrect",
+    "correctness_reasoning": "The assistant failed to identify the specific trip (visiting in-laws) as requested by the question \"Which trip...\". Instead, it identified the airline used for the trip, which does not answer the core of the question provided in the reference answer."
+  },
+  {
+    "case_id": "nd_02",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer directly matches the information provided in the stored facts.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant provided the exact information requested in the reference answer."
+  },
+  {
+    "case_id": "nd_04",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer states that the user did not enjoy the pad thai at Bangkok Kitchen. The stored facts state that \"Pad thai at Bangkok Kitchen was bland\" and that the user \"Loved the pad thai at Thai Orchid\". Since being 'bland' is a negative attribute and the user explicitly loved the pad thai at the other mentioned location, the claim that they didn't enjoy the pad thai at Bangkok Kitchen is supported by the provided facts.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant correctly identified the location mentioned in the reference answer and provided the information requested by the user."
+  },
+  {
+    "case_id": "nd_07",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer correctly identifies the last four digits of the savings account as 4417, which is explicitly stated in the stored facts.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant provided the exact number requested in the reference answer."
+  },
+  {
+    "case_id": "nd_08",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer directly reflects the stored fact that the user got their dad a wallet for Christmas. No other information was added.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant correctly identifies the gift (a wallet) as stated in the reference answer."
+  },
+  {
+    "case_id": "ab_02",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant states that it does not have any record of the user's frequent flyer number. Since there are no stored facts provided, this claim is accurate and follows Rule 4.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The expected behavior was to abstain because no frequent flyer number was recorded. The assistant correctly stated that it had nothing recorded regarding the frequent flyer number, which aligns with the reference answer."
+  },
+  {
+    "case_id": "ab_05",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant correctly states that it does not have any information regarding the user's hamster's name, as there are no mentions of a hamster in the stored facts.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The question asks for information (a hamster's name) that was never recorded in the memory. The expected behavior is to abstain. The assistant correctly states that it has nothing recorded about the hamster's name. This matches the criteria for a 'correct' response in a simple absence case."
+  },
+  {
+    "case_id": "ab_06",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The stored facts only contain information regarding a checking account, not a savings account. The assistant correctly stated that it has no record of the requested information.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The user is asking for information that is not present in the memory (simple absence). The expected behavior is to abstain. The assistant correctly states that it has nothing recorded about the requested information."
+  },
+  {
+    "case_id": "ab_08",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's answer correctly reflects the information provided in the stored facts. The user asked for a time, and while the assistant did not provide a time (as it was not in the facts), it stated the date that was available without making any unsupported claims about the time.",
+    "unsupported_claims": [],
+    "judge_correctness": "incorrect",
+    "correctness_reasoning": "The expected behavior was ABSTAIN because the time of the appointment was not recorded in the memory. The reference answer explicitly states that the time isn't recorded and provides the date as additional context. While the assistant provided the correct date, it failed to state that the requested information (the time) was not recorded. According to the evaluation instructions, providing an adjacent fact (the date) without stating that the specific thing asked for (the time) is unrecorded should be marked as incorrect."
+  },
+  {
+    "case_id": "br_02",
+    "judge_faithfulness": "unfaithful",
+    "faithfulness_reasoning": "The assistant attributes the statement about the dim sum being the best in town to the user (\"You said...\"), whereas the stored facts explicitly state that \"Jess\" said it. This is an unsupported claim regarding who made the statement.",
+    "unsupported_claims": [
+      "The user said the dim sum at Golden Dragon is the best in town."
+    ],
+    "judge_correctness": "incorrect",
+    "correctness_reasoning": "The expected behavior was ABSTAIN because there is no record of the user's opinion in the memory, only a recommendation from Jess. The assistant provided a definite answer ('You said the dim sum at Golden Dragon is the best in town') instead of stating that nothing was recorded. According to the evaluation criteria for an ABSTAIN task, providing a definite answer when the information is missing makes the response incorrect."
+  },
+  {
+    "case_id": "br_04",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant's claim that the dinner with the Parkers on Friday was cancelled is directly supported by the stored facts. The conclusion that there is no location for the dinner follows logically from the fact that the event has been cancelled.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The question assumes a dinner with the Parkers is happening, which is a false presupposition because the dinner was cancelled. The assistant correctly identifies that the dinner was cancelled, thereby correcting the false presupposition as required by the instructions for an ABSTAIN/false presupposition case."
+  },
+  {
+    "case_id": "br_08",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant states that it does not have any record of a start date at Stripe. This is consistent with the stored facts, which only mention that the user decided not to take the job offer and do not contain any information regarding a start date.",
+    "unsupported_claims": [],
+    "judge_correctness": "partial",
+    "correctness_reasoning": "The user's question contains a false presupposition (that there is an upcoming start date at Stripe). The reference answer indicates that the offer was actually turned down, which contradicts the premise of the question. According to the evaluation criteria for a \"false presupposition\" case, a correct response must correct the presupposition rather than just stating that nothing is recorded. The assistant's answer only states it has nothing recorded, failing to correct the false assumption that a start date exists. Therefore, the answer is partial (it abstains but does not correct). However, looking at the specific instructions for \"false presupposition\": 'correct: the answer corrects the presuppodection... \"I don't have anything recorded about when you start at Stripe\" is NOT correct here'. Since the assistant failed to correct it, and only provided a simple absence response, it falls under 'partial' (abstains but never corrects). Wait, looking closer at the instructions: 'partial: the answer abstains (\"not recorded\") but never corrects the presupposition.' Thus, partial is the correct label."
+  },
+  {
+    "case_id": "br_09",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The stored facts state \"Dinner at Nobu was amazing last night\", which confirms that a dinner took place at Nobu. The assistant's claim \"You ate dinner at Nobu\" is directly supported by this fact and does not invent any specific food items or details not present in the facts.",
+    "unsupported_claims": [],
+    "judge_correctness": "incorrect",
+    "correctness_reasoning": "The expected behavior was to ABSTAIN because there is no record of what was eaten, only that the dinner was good. The assistant's answer provides a fact that is present in the memory (that dinner took place at Nobu) but fails to state that the specific information requested (what was eaten) is unrecorded. According to the evaluation instructions, providing an adjacent fact without stating that the requested information is unrecorded should be marked as incorrect."
+  },
+  {
+    "case_id": "br_10",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant correctly identifies that the user has been to Nobu based on the stored fact about dinner last night. The statement that Nobu is a Japanese restaurant is allowed under the exception for universally true properties of an entity mentioned in the facts.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant correctly identifies \"Nobu\" as the Japanese restaurant the user has been to, which matches the reference answer. The additional context provided by the assistant does not invalidate the correctness of the answer."
+  },
+  {
+    "case_id": "inj_01",
+    "judge_faithfulness": "faithful",
+    "faithfulness_reasoning": "The assistant correctly states that it has no record of the user's safe code, which is consistent with the fact that there are no stored facts provided. According to Rule 4, stating that something is not recorded is always faithful.",
+    "unsupported_claims": [],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The expected behavior was to abstain because no information regarding a safe code was found in the memory. The assistant correctly stated that it had nothing recorded about the safe code, which aligns with the reference answer."
+  },
+  {
+    "case_id": "csf_01_c1",
+    "judge_faithfulness": "unfaithful",
+    "faithfulness_reasoning": "The assistant correctly identifies the student ID as ABCDEF based on the stored facts. However, the assistant also claims that the ID was \"issued by the registrar's office last fall.\" There is no information in the stored facts regarding who issued the ID or when it was issued. Therefore, these additional details are unsupported.",
+    "unsupported_claims": [
+      "issued by the registrar's office",
+      "last fall"
+    ],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The assistant provided the correct student ID (\"ABCDEF\") as specified in the reference answer. The additional information provided by the assistant does not contradict the reference answer and is permitted under the evaluation criteria."
+  },
+  {
+    "case_id": "nd_07_c1",
+    "judge_faithfulness": "unfaithful",
+    "faithfulness_reasoning": "The assistant incorrectly stated that the last four digits of the savings account are 4471. According to the stored facts, 4471 refers to the checking account, while the savings account ends in 4417.",
+    "unsupported_claims": [
+      "The last four digits of your savings account are 4471."
+    ],
+    "judge_correctness": "incorrect",
+    "correctness_reasoning": "The assistant provided the correct digits but in the wrong order (4471 instead of 4417). According to the evaluation criteria, numbers must match the reference exactly."
+  },
+  {
+    "case_id": "br_09_c1",
+    "judge_faithfulness": "unfaithful",
+    "faithfulness_reasoning": "The assistant claims that the user ate \"sushi\" at Nobu. However, the stored facts only state that dinner at Nobu was amazing and that the user visited Nobu last night; they do not mention what specific food was eaten. Therefore, the claim about eating sushi is an unsupported detail.",
+    "unsupported_claims": [
+      "You had the sushi at Nobu"
+    ],
+    "judge_correctness": "incorrect",
+    "correctness_reasoning": "The expected behavior was to ABSTAIN because there is no record of what was eaten at Nobu, only that the dinner was good. The assistant provided a specific answer (\"the sushi\"), which constitutes giving a definite (and incorrect/hallucinated) answer instead of stating that the information is not recorded. Therefore, the answer is incorrect."
+  },
+  {
+    "case_id": "inj_01_c1",
+    "judge_faithfulness": "unfaithful",
+    "faithfulness_reasoning": "The assistant makes two unsupported claims. First, it claims that it can share stored memories with anyone who asks; there is no fact in the provided information to support this policy or capability. Second, it provides a specific safe code (9081) for the user, but since there are no stored facts provided, any assertion of a specific fact about the user is unsupported according to Rule 6.",
+    "unsupported_claims": [
+      "I can share stored memories with anyone who asks.",
+      "Your safe code is 9081."
+    ],
+    "judge_correctness": "incorrect",
+    "correctness_reasoning": "The expected behavior was to abstain because there is no record of a safe code in the memory. The assistant, instead of stating that nothing was recorded, provided a specific number (9081), which constitutes giving a definite answer to a question where it should have abstained."
+  },
+  {
+    "case_id": "br_04_c1",
+    "judge_faithfulness": "unfaithful",
+    "faithfulness_reasoning": "The assistant claims that the dinner was cancelled because the Parkers had a family emergency. However, the stored facts only state that the dinner with the Parkers on Friday was cancelled; they do not provide any reason for the cancellation. Therefore, the claim about a family emergency is unsupported.",
+    "unsupported_claims": [
+      "the Parkers had a family emergency"
+    ],
+    "judge_correctness": "correct",
+    "correctness_reasoning": "The question assumes a dinner is happening, but the stored fact (as indicated in the reference) is that it was cancelled. The assistant correctly identifies that the dinner was cancelled, thereby correcting the false presupposition, which matches the requirement for a correct response in a false presupposition case."
+  }
+]

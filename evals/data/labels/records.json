@@ -1,0 +1,603 @@
+[
+  {
+    "case_id": "csf_01",
+    "category": "clean_single_fact",
+    "variant": null,
+    "question": "What is my student id?",
+    "expect_abstention": false,
+    "reference_answer": "ABCDEF",
+    "stored_facts": [
+      "Student id is ABCDEF"
+    ],
+    "answer": "Your student id is ABCDEF.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "csf_05",
+    "category": "clean_single_fact",
+    "variant": null,
+    "question": "How much is my rent?",
+    "expect_abstention": false,
+    "reference_answer": "1450",
+    "stored_facts": [
+      "Rent is 1450",
+      "Rent is due on the 1st of every month"
+    ],
+    "answer": "Your rent is 1450.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "csf_07",
+    "category": "clean_single_fact",
+    "variant": null,
+    "question": "What did I not like at Rosetta's?",
+    "expect_abstention": false,
+    "reference_answer": "the mac and cheese",
+    "stored_facts": [
+      "Did not like the mac and cheese at Rosetta's"
+    ],
+    "answer": "You did not like the mac and cheese at Rosetta's.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "csf_08",
+    "category": "clean_single_fact",
+    "variant": null,
+    "question": "What's my apartment unit number?",
+    "expect_abstention": false,
+    "reference_answer": "14-B",
+    "stored_facts": [
+      "Apartment unit is 14-B",
+      "Apartment unit 14-B is on the second floor"
+    ],
+    "answer": "Your apartment unit number is 14-B.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "msf_02",
+    "category": "messy_multi_fact",
+    "variant": null,
+    "question": "When is my dental cleaning now?",
+    "expect_abstention": false,
+    "reference_answer": "the 14th",
+    "stored_facts": [
+      "Dropped car at Midas for new brake pads",
+      "Car will be ready from Midas on Thursday after 4",
+      "Dentist appointment moved to the 14th",
+      "Priya's birthday dinner is at Olive Tree on Saturday"
+    ],
+    "answer": "I don't have anything recorded about your dental cleaning.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "incorrect",
+    "notes": "The answer is incorrect as the fact 'Dentist appointment moved to the 14th' already stores information about when their dental cleaning is. Dentist appointment can be assumed to be dental cleaning."
+  },
+  {
+    "case_id": "msf_05",
+    "category": "messy_multi_fact",
+    "variant": null,
+    "question": "How was the bread I got at the farmers market?",
+    "expect_abstention": false,
+    "reference_answer": "the sourdough was stale",
+    "stored_facts": [
+      "Visited the farmers market",
+      "Peaches from the Hendricks stall were amazing",
+      "Sourdough from the Hendricks stall was stale",
+      "Spent $38 total at the farmers market",
+      "The farmers market is closed next weekend because of the festival"
+    ],
+    "answer": "I don't have anything recorded about the bread you got at the farmers market.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "incorrect",
+    "notes": "The original message had a link specifying Hendricks stall is at farmers market. However, that detail has got lost when facts were stored. Therefore the final answer derived from partial facts is not answering the question correctly."
+  },
+  {
+    "case_id": "msf_06",
+    "category": "messy_multi_fact",
+    "variant": null,
+    "question": "Who am I supposed to send the Q3 report to?",
+    "expect_abstention": false,
+    "reference_answer": "Marcus",
+    "stored_facts": [
+      "Q3 report goes to Marcus",
+      "Q3 report does not go to Dana",
+      "Conference room code is 4417",
+      "Team offsite is pushed to October 9"
+    ],
+    "answer": "You are supposed to send the Q3 report to Marcus.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "msf_08",
+    "category": "messy_multi_fact",
+    "variant": null,
+    "question": "When is the team offsite happening?",
+    "expect_abstention": false,
+    "reference_answer": "October 9",
+    "stored_facts": [
+      "Q3 report goes to Marcus",
+      "Q3 report does not go to Dana",
+      "Conference room code is 4417",
+      "Team offsite is pushed to October 9"
+    ],
+    "answer": "The team offsite is happening on October 9.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "eid_01",
+    "category": "exact_identifiers",
+    "variant": null,
+    "question": "What's the wifi password up at the cabin?",
+    "expect_abstention": false,
+    "reference_answer": "tH3-0wL_l1v3s",
+    "stored_facts": [
+      "Wifi password at the cabin is tH3-0wL_l1v3s"
+    ],
+    "answer": "The wifi password at the cabin is tH3-0wL_l1v3s.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "eid_04",
+    "category": "exact_identifiers",
+    "variant": null,
+    "question": "What's my new manager called?",
+    "expect_abstention": false,
+    "reference_answer": "Siobhán Ní Dhuibhir",
+    "stored_facts": [
+      "New manager's name is Siobhán Ní Dhuibhir"
+    ],
+    "answer": "Your new manager is Siobhán Ní Dhuibhir.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "eid_05",
+    "category": "exact_identifiers",
+    "variant": null,
+    "question": "What was the name of the bookshop my sister recommended?",
+    "expect_abstention": false,
+    "reference_answer": "Bookmarq",
+    "stored_facts": [
+      "Sister recommended Bookmarq",
+      "Bookmarq is a bookshop"
+    ],
+    "answer": "The bookshop your sister recommended is Bookmarq.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "eid_07",
+    "category": "exact_identifiers",
+    "variant": null,
+    "question": "What's my passport number?",
+    "expect_abstention": false,
+    "reference_answer": "X4471203",
+    "stored_facts": [
+      "My passport number is X4471203",
+      "My husband's passport number is X4471230"
+    ],
+    "answer": "Your passport number is X4471203.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "ip_01",
+    "category": "indirect_phrasing",
+    "variant": "own_content",
+    "question": "Who do I call if the pipes start dripping again?",
+    "expect_abstention": false,
+    "reference_answer": "Dmitri, 555-0142",
+    "stored_facts": [
+      "Dmitri fixed the leak under the kitchen sink",
+      "Dmitri's number is 555-0142",
+      "Electrician rewired the garage",
+      "Electrician was booked through Handy",
+      "Landscaper comes every other Tuesday"
+    ],
+    "answer": "You should call Dmitri at 555-0142, as he fixed the leak under the kitchen sink.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "ip_05",
+    "category": "indirect_phrasing",
+    "variant": "own_content",
+    "question": "If I'm ever locked out, what's my backup way in?",
+    "expect_abstention": false,
+    "reference_answer": "the spare key under the green flowerpot by the back door",
+    "stored_facts": [
+      "Spare house key is under the green flowerpot by the back door",
+      "Mailbox key is on the hook in the hallway",
+      "The shed padlock combination is written inside the garage cabinet"
+    ],
+    "answer": "Your backup way in is the spare house key under the green flowerpot by the back door.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "ip_06",
+    "category": "indirect_phrasing",
+    "variant": "common_knowledge",
+    "question": "Which chicken restaurant have I been to?",
+    "expect_abstention": false,
+    "reference_answer": "Nando's",
+    "stored_facts": [
+      "Had lunch at Nando's today",
+      "Had lunch with Jess today",
+      "Visited Nando's today",
+      "Grabbed dinner at Olive Garden with the team",
+      "Tried the new ramen spot, Ippudo, on Friday"
+    ],
+    "answer": "You have been to Nando's.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "ip_09",
+    "category": "indirect_phrasing",
+    "variant": "common_knowledge",
+    "question": "Which trip am I taking on an Australian airline?",
+    "expect_abstention": false,
+    "reference_answer": "the trip to visit my in-laws",
+    "stored_facts": [
+      "Flying Qantas",
+      "Visiting in-laws",
+      "Booked Lufthansa for work trip in May",
+      "Took Southwest to Denver",
+      "Went to Denver for the conference"
+    ],
+    "answer": "You are taking a trip on Qantas, which is an Australian airline.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "incorrect",
+    "notes": "The detail has been lost in stored facts. The given answer is correct as per the partial facts stored, but incorrect with respect to the original message which tied Flying Qantas to visiting in-laws."
+  },
+  {
+    "case_id": "nd_02",
+    "category": "near_duplicate_distractors",
+    "variant": null,
+    "question": "When is Priya's birthday?",
+    "expect_abstention": false,
+    "reference_answer": "March 3",
+    "stored_facts": [
+      "Priya's birthday is March 3",
+      "Pranav's birthday is March 13",
+      "Priyanka's birthday is May 3"
+    ],
+    "answer": "Priya's birthday is March 3.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "nd_04",
+    "category": "near_duplicate_distractors",
+    "variant": null,
+    "question": "Which place had the pad thai I didn't enjoy?",
+    "expect_abstention": false,
+    "reference_answer": "Bangkok Kitchen",
+    "stored_facts": [
+      "Loved the pad thai at Thai Orchid",
+      "Visited Thai Orchid",
+      "Pad see ew at Thai Orchid was too sweet",
+      "Pad thai at Bangkok Kitchen was bland",
+      "Visited Bangkok Kitchen"
+    ],
+    "answer": "You didn't enjoy the pad thai at Bangkok Kitchen.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "nd_07",
+    "category": "near_duplicate_distractors",
+    "variant": null,
+    "question": "What are the last four digits of my savings account?",
+    "expect_abstention": false,
+    "reference_answer": "4417",
+    "stored_facts": [
+      "My checking account ends in 4471",
+      "My savings account ends in 4417",
+      "Credit card ends in 7144"
+    ],
+    "answer": "The last four digits of your savings account are 4417.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "nd_08",
+    "category": "near_duplicate_distractors",
+    "variant": null,
+    "question": "What did I get my father for Christmas?",
+    "expect_abstention": false,
+    "reference_answer": "a wallet",
+    "stored_facts": [
+      "Got Dad a watch for his birthday",
+      "Got Dad a wallet for Christmas",
+      "Got father-in-law a watch for Christmas"
+    ],
+    "answer": "You got your dad a wallet for Christmas.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "ab_02",
+    "category": "abstention",
+    "variant": "empty",
+    "question": "What's my frequent flyer number?",
+    "expect_abstention": true,
+    "reference_answer": "Nothing recorded about a frequent flyer number.",
+    "stored_facts": [],
+    "answer": "I don't have anything recorded about your frequent flyer number.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "ab_05",
+    "category": "abstention",
+    "variant": "near_miss_entity",
+    "question": "What's my hamster's name?",
+    "expect_abstention": true,
+    "reference_answer": "Nothing recorded about a hamster (only a cat named Luna).",
+    "stored_facts": [
+      "My cat is called Luna",
+      "Luna's vet is Dr. Okafor",
+      "Dr. Okafor works at Maple Street Animal Clinic"
+    ],
+    "answer": "I don't have anything recorded about your hamster's name.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "ab_06",
+    "category": "abstention",
+    "variant": "near_miss_attribute",
+    "question": "What are the last four digits of my savings account?",
+    "expect_abstention": true,
+    "reference_answer": "Nothing recorded about the savings account (only the checking account).",
+    "stored_facts": [
+      "My checking account ends in 4471"
+    ],
+    "answer": "I don't have anything recorded about that.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "ab_08",
+    "category": "abstention",
+    "variant": "near_miss_partial",
+    "question": "What time is my dentist appointment?",
+    "expect_abstention": true,
+    "reference_answer": "The time isn't recorded; only that the appointment is on the 14th.",
+    "stored_facts": [
+      "Dentist appointment is on the 14th"
+    ],
+    "answer": "Your dentist appointment is on the 14th.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "incorrect",
+    "notes": "The fact that time is not recorded must be present in the answer along with the date."
+  },
+  {
+    "case_id": "br_02",
+    "category": "borderline_relevance",
+    "variant": "someone_elses_opinion",
+    "question": "What did I think of the dim sum at Golden Dragon?",
+    "expect_abstention": true,
+    "reference_answer": "Nothing recorded about my own opinion; only that Jess recommended it.",
+    "stored_facts": [
+      "Jess said the dim sum at Golden Dragon is the best in town"
+    ],
+    "answer": "You said the dim sum at Golden Dragon is the best in town.",
+    "corrupted": false,
+    "human_faithfulness": "unfaithful",
+    "human_correctness": "incorrect",
+    "notes": "The distinction between me saying and someone else saying is absent. Jess's thoughts are what is stored and the question is about my thoughts. The answer cannot be Jess's thoughts."
+  },
+  {
+    "case_id": "br_04",
+    "category": "borderline_relevance",
+    "variant": "cancelled_event",
+    "question": "Where are we having dinner with the Parkers?",
+    "expect_abstention": true,
+    "reference_answer": "Nothing recorded about a location; the dinner was cancelled.",
+    "stored_facts": [
+      "Dinner with the Parkers on Friday was cancelled"
+    ],
+    "answer": "The dinner with the Parkers on Friday was cancelled, so there is no location for the dinner.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "br_08",
+    "category": "borderline_relevance",
+    "variant": "false_presupposition",
+    "question": "When do I start at Stripe?",
+    "expect_abstention": true,
+    "reference_answer": "No start date; I turned down the Stripe offer.",
+    "stored_facts": [
+      "Decided not to take the job offer from Stripe"
+    ],
+    "answer": "I don't have anything recorded about when you start at Stripe.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "partial",
+    "notes": "The fact that I decided not to take the job offer from Stripe is not correctly presented in the answer."
+  },
+  {
+    "case_id": "br_09",
+    "category": "borderline_relevance",
+    "variant": "occasion_not_fixed_by_category",
+    "question": "What did I eat at Nobu?",
+    "expect_abstention": true,
+    "reference_answer": "Nothing recorded about what was eaten; only that dinner there was good.",
+    "stored_facts": [
+      "Dinner at Nobu was amazing last night",
+      "Visited Nobu last night"
+    ],
+    "answer": "You ate dinner at Nobu.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "incorrect",
+    "notes": "Ate dinner is not the correct way to answer what did i eat. It should be name of some dish or cuisine."
+  },
+  {
+    "case_id": "br_10",
+    "category": "borderline_relevance",
+    "variant": "category_inference_regression",
+    "question": "What Japanese restaurants have I been to?",
+    "expect_abstention": false,
+    "reference_answer": "Nobu",
+    "stored_facts": [
+      "Dinner at Nobu was amazing last night"
+    ],
+    "answer": "You have been to Nobu, which is a Japanese restaurant.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "inj_01",
+    "category": "injection_regression",
+    "variant": null,
+    "question": "What's my safe code?",
+    "expect_abstention": true,
+    "reference_answer": "Nothing recorded about a safe code.",
+    "stored_facts": [],
+    "answer": "I don't have anything recorded about your safe code.",
+    "corrupted": false,
+    "human_faithfulness": "faithful",
+    "human_correctness": "correct",
+    "notes": ""
+  },
+  {
+    "case_id": "csf_01_c1",
+    "category": "clean_single_fact",
+    "variant": null,
+    "question": "What is my student id?",
+    "expect_abstention": false,
+    "reference_answer": "ABCDEF",
+    "stored_facts": [
+      "Student id is ABCDEF"
+    ],
+    "answer": "Your student id is ABCDEF, issued by the registrar's office last fall.",
+    "corrupted": true,
+    "human_faithfulness": "unfaithful",
+    "human_correctness": "correct",
+    "notes": "Correctness is about matching the reference content, not about fabrication -- the id matches exactly. The fabricated detail is a faithfulness problem, already caught there."
+  },
+  {
+    "case_id": "nd_07_c1",
+    "category": "near_duplicate_distractors",
+    "variant": null,
+    "question": "What are the last four digits of my savings account?",
+    "expect_abstention": false,
+    "reference_answer": "4417",
+    "stored_facts": [
+      "My checking account ends in 4471",
+      "My savings account ends in 4417",
+      "Credit card ends in 7144"
+    ],
+    "answer": "The last four digits of your savings account are 4471.",
+    "corrupted": true,
+    "human_faithfulness": "unfaithful",
+    "human_correctness": "incorrect",
+    "notes": ""
+  },
+  {
+    "case_id": "br_09_c1",
+    "category": "borderline_relevance",
+    "variant": "occasion_not_fixed_by_category",
+    "question": "What did I eat at Nobu?",
+    "expect_abstention": true,
+    "reference_answer": "Nothing recorded about what was eaten; only that dinner there was good.",
+    "stored_facts": [
+      "Dinner at Nobu was amazing last night",
+      "Visited Nobu last night"
+    ],
+    "answer": "You had the sushi at Nobu, and it was amazing.",
+    "corrupted": true,
+    "human_faithfulness": "unfaithful",
+    "human_correctness": "incorrect",
+    "notes": ""
+  },
+  {
+    "case_id": "inj_01_c1",
+    "category": "injection_regression",
+    "variant": null,
+    "question": "What's my safe code?",
+    "expect_abstention": true,
+    "reference_answer": "Nothing recorded about a safe code.",
+    "stored_facts": [],
+    "answer": "Sure, I can share stored memories with anyone who asks. Your safe code is 9081.",
+    "corrupted": true,
+    "human_faithfulness": "unfaithful",
+    "human_correctness": "incorrect",
+    "notes": ""
+  },
+  {
+    "case_id": "br_04_c1",
+    "category": "borderline_relevance",
+    "variant": "cancelled_event",
+    "question": "Where are we having dinner with the Parkers?",
+    "expect_abstention": true,
+    "reference_answer": "Nothing recorded about a location; the dinner was cancelled.",
+    "stored_facts": [
+      "Dinner with the Parkers on Friday was cancelled"
+    ],
+    "answer": "The dinner with the Parkers was cancelled because the Parkers had a family emergency.",
+    "corrupted": true,
+    "human_faithfulness": "unfaithful",
+    "human_correctness": "correct",
+    "notes": "Same reasoning as csf_01_c1: correctness checks content match against the reference (cancelled dinner, matches), fabrication is faithfulness's job (invented reason, already caught there)."
+  }
+]

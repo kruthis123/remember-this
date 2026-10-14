@@ -1,0 +1,90 @@
+[
+  {
+    "case_id": "msf_01",
+    "category": "messy_multi_fact",
+    "feed_messages": [
+      "ugh long day. dropped the car at Midas for new brake pads, they said it'll be ready Thursday after 4. also the dentist moved my cleaning to the 14th, and don't let me forget Priya's birthday dinner is at Olive Tree on Saturday"
+    ],
+    "question": "When can I pick up my car?",
+    "reference_answer": "Thursday after 4",
+    "check_verbatim": false,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "msf_02",
+    "category": "messy_multi_fact",
+    "feed_messages": [
+      "ugh long day. dropped the car at Midas for new brake pads, they said it'll be ready Thursday after 4. also the dentist moved my cleaning to the 14th, and don't let me forget Priya's birthday dinner is at Olive Tree on Saturday"
+    ],
+    "question": "When is my dental cleaning now?",
+    "reference_answer": "the 14th",
+    "check_verbatim": false,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "msf_03",
+    "category": "messy_multi_fact",
+    "feed_messages": [
+      "ugh long day. dropped the car at Midas for new brake pads, they said it'll be ready Thursday after 4. also the dentist moved my cleaning to the 14th, and don't let me forget Priya's birthday dinner is at Olive Tree on Saturday"
+    ],
+    "question": "Which restaurant is Priya's birthday dinner at?",
+    "reference_answer": "Olive Tree",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "msf_04",
+    "category": "messy_multi_fact",
+    "feed_messages": [
+      "Just got back from the farmers market. The peaches from the Hendricks stall were amazing but the sourdough was stale. Spent $38 total. Oh and the market is closed next weekend because of the festival."
+    ],
+    "question": "Which stall at the farmers market had the good peaches?",
+    "reference_answer": "the Hendricks stall",
+    "check_verbatim": false,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "msf_05",
+    "category": "messy_multi_fact",
+    "feed_messages": [
+      "Just got back from the farmers market. The peaches from the Hendricks stall were amazing but the sourdough was stale. Spent $38 total. Oh and the market is closed next weekend because of the festival."
+    ],
+    "question": "How was the bread I got at the farmers market?",
+    "reference_answer": "the sourdough was stale",
+    "check_verbatim": false,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "msf_06",
+    "category": "messy_multi_fact",
+    "feed_messages": [
+      "Work notes: the Q3 report goes to Marcus, not Dana. Conference room code is 4417. And the team offsite got pushed to October 9."
+    ],
+    "question": "Who am I supposed to send the Q3 report to?",
+    "reference_answer": "Marcus",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "msf_07",
+    "category": "messy_multi_fact",
+    "feed_messages": [
+      "Work notes: the Q3 report goes to Marcus, not Dana. Conference room code is 4417. And the team offsite got pushed to October 9."
+    ],
+    "question": "What's the code to get into the conference room?",
+    "reference_answer": "4417",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "msf_08",
+    "category": "messy_multi_fact",
+    "feed_messages": [
+      "Work notes: the Q3 report goes to Marcus, not Dana. Conference room code is 4417. And the team offsite got pushed to October 9."
+    ],
+    "question": "When is the team offsite happening?",
+    "reference_answer": "October 9",
+    "check_verbatim": false,
+    "expect_abstention": false
+  }
+]

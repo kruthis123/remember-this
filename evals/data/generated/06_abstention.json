@@ -1,0 +1,98 @@
+[
+  {
+    "case_id": "ab_01",
+    "category": "abstention",
+    "variant": "empty",
+    "feed_messages": [],
+    "question": "What's the wifi password at the cabin?",
+    "reference_answer": "Nothing recorded about the cabin wifi password.",
+    "check_verbatim": false,
+    "expect_abstention": true
+  },
+  {
+    "case_id": "ab_02",
+    "category": "abstention",
+    "variant": "empty",
+    "feed_messages": [],
+    "question": "What's my frequent flyer number?",
+    "reference_answer": "Nothing recorded about a frequent flyer number.",
+    "check_verbatim": false,
+    "expect_abstention": true
+  },
+  {
+    "case_id": "ab_03",
+    "category": "abstention",
+    "variant": "unrelated",
+    "feed_messages": [
+      "My locker combination is 12-34-56.",
+      "Rent is 1450, due on the 1st."
+    ],
+    "question": "What's my blood type?",
+    "reference_answer": "Nothing recorded about blood type.",
+    "check_verbatim": false,
+    "expect_abstention": true
+  },
+  {
+    "case_id": "ab_04",
+    "category": "abstention",
+    "variant": "unrelated",
+    "feed_messages": [
+      "Dad likes his coffee black with no sugar.",
+      "The team offsite got pushed to October 9."
+    ],
+    "question": "What's the license plate on my car?",
+    "reference_answer": "Nothing recorded about a license plate.",
+    "check_verbatim": false,
+    "expect_abstention": true
+  },
+  {
+    "case_id": "ab_05",
+    "category": "abstention",
+    "variant": "near_miss_entity",
+    "feed_messages": [
+      "My cat is called Luna.",
+      "Luna's vet is Dr. Okafor at Maple Street Animal Clinic."
+    ],
+    "question": "What's my hamster's name?",
+    "reference_answer": "Nothing recorded about a hamster (only a cat named Luna).",
+    "check_verbatim": false,
+    "expect_abstention": true
+  },
+  {
+    "case_id": "ab_06",
+    "category": "abstention",
+    "variant": "near_miss_attribute",
+    "feed_messages": [
+      "My checking account ends in 4471."
+    ],
+    "question": "What are the last four digits of my savings account?",
+    "reference_answer": "Nothing recorded about the savings account (only the checking account).",
+    "check_verbatim": false,
+    "expect_abstention": true
+  },
+  {
+    "case_id": "ab_07",
+    "category": "abstention",
+    "variant": "near_miss_entity",
+    "feed_messages": [
+      "Priya's birthday is March 3.",
+      "Pranav's birthday is March 13."
+    ],
+    "question": "When is Priyanka's birthday?",
+    "reference_answer": "Nothing recorded about Priyanka's birthday.",
+    "check_verbatim": false,
+    "expect_abstention": true
+  },
+  {
+    "case_id": "ab_08",
+    "category": "abstention",
+    "variant": "near_miss_partial",
+    "feed_messages": [
+      "My dentist appointment is on the 14th."
+    ],
+    "question": "What time is my dentist appointment?",
+    "reference_answer": "The time isn't recorded; only that the appointment is on the 14th.",
+    "check_verbatim": false,
+    "expect_abstention": true
+  }
+]

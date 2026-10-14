@@ -1,0 +1,126 @@
+[
+  {
+    "case_id": "br_01",
+    "category": "borderline_relevance",
+    "variant": "intention_not_outcome",
+    "feed_messages": [
+      "I'm planning to try the tasting menu at Sorrel next month."
+    ],
+    "question": "How was the tasting menu at Sorrel?",
+    "reference_answer": "Nothing recorded about how it was; only that I planned to try it.",
+    "check_verbatim": false,
+    "expect_abstention": true
+  },
+  {
+    "case_id": "br_02",
+    "category": "borderline_relevance",
+    "variant": "someone_elses_opinion",
+    "feed_messages": [
+      "Jess said the dim sum at Golden Dragon is the best in town."
+    ],
+    "question": "What did I think of the dim sum at Golden Dragon?",
+    "reference_answer": "Nothing recorded about my own opinion; only that Jess recommended it.",
+    "check_verbatim": false,
+    "expect_abstention": true
+  },
+  {
+    "case_id": "br_03",
+    "category": "borderline_relevance",
+    "variant": "conditional_not_fact",
+    "feed_messages": [
+      "If the flight gets delayed, we'll stay at the Hilton near the airport."
+    ],
+    "question": "Which hotel are we staying at?",
+    "reference_answer": "Nothing recorded about a confirmed hotel; the Hilton was only the plan if the flight is delayed.",
+    "check_verbatim": false,
+    "expect_abstention": true
+  },
+  {
+    "case_id": "br_04",
+    "category": "borderline_relevance",
+    "variant": "cancelled_event",
+    "feed_messages": [
+      "The dinner with the Parkers on Friday got cancelled."
+    ],
+    "question": "Where are we having dinner with the Parkers?",
+    "reference_answer": "Nothing recorded about a location; the dinner was cancelled.",
+    "check_verbatim": false,
+    "expect_abstention": true
+  },
+  {
+    "case_id": "br_05",
+    "category": "borderline_relevance",
+    "variant": "reason_missing",
+    "feed_messages": [
+      "Returned the blender to Target on Saturday."
+    ],
+    "question": "Why did I return the blender?",
+    "reference_answer": "Nothing recorded about the reason.",
+    "check_verbatim": false,
+    "expect_abstention": true
+  },
+  {
+    "case_id": "br_06",
+    "category": "borderline_relevance",
+    "variant": "habit_not_scheduled_event",
+    "feed_messages": [
+      "I usually get my hair cut at Studio 9 on Elm Street."
+    ],
+    "question": "When is my next haircut?",
+    "reference_answer": "Nothing recorded about a scheduled haircut; only where I usually go.",
+    "check_verbatim": false,
+    "expect_abstention": true
+  },
+  {
+    "case_id": "br_07",
+    "category": "borderline_relevance",
+    "variant": "recommendation_not_attended",
+    "feed_messages": [
+      "My colleague recommended the Monet exhibition at the city museum."
+    ],
+    "question": "What did I see at the city museum?",
+    "reference_answer": "Nothing recorded about a visit; only that a colleague recommended the Monet exhibition.",
+    "check_verbatim": false,
+    "expect_abstention": true
+  },
+  {
+    "case_id": "br_08",
+    "category": "borderline_relevance",
+    "variant": "false_presupposition",
+    "feed_messages": [
+      "I decided not to take the job offer from Stripe."
+    ],
+    "question": "When do I start at Stripe?",
+    "reference_answer": "No start date; I turned down the Stripe offer.",
+    "check_verbatim": false,
+    "expect_abstention": true
+  },
+  {
+    "case_id": "br_09",
+    "category": "borderline_relevance",
+    "variant": "occasion_not_fixed_by_category",
+    "source": "relevance.py rule 2a / prompts/relevance.py example 2c-style boundary, exercised via the top-level agent",
+    "feed_messages": [
+      "Dinner at Nobu was amazing last night."
+    ],
+    "question": "What did I eat at Nobu?",
+    "reference_answer": "Nothing recorded about what was eaten; only that dinner there was good.",
+    "check_verbatim": false,
+    "expect_abstention": true,
+    "notes": "Nobu being a Japanese/sushi restaurant is a fixed property of the venue, but that does NOT fix what was actually ordered on this occasion -- the fact never states the food. Rule 2a requires an occasion-specific question like this to be answered only if the fact states the detail directly; it must not be inferred from the venue's typical or famous cuisine, no matter how plausible. The reply must not assume the user ate sushi (or any specific dish) at Nobu."
+  },
+  {
+    "case_id": "br_10",
+    "category": "borderline_relevance",
+    "variant": "category_inference_regression",
+    "source": "agent-manual-test-findings.md: nondeterministic relevance verdict on a category-level inference question",
+    "feed_messages": [
+      "Dinner at Nobu was amazing last night."
+    ],
+    "question": "What Japanese restaurants have I been to?",
+    "reference_answer": "Nobu",
+    "check_verbatim": true,
+    "expect_abstention": false,
+    "notes": "Unlike br_01-09, this one SHOULD be answered: Nobu being a Japanese restaurant is a fixed venue property (relevance.py rule 2a), asked about at the category/venue-type level, not the occasion level -- contrast with br_09, which asks about the same fact but at the occasion level and must NOT be answered. Regression guard for a real nondeterminism bug found during step 6 manual testing -- two identical calls to check_relevance previously returned opposite verdicts on this exact question. Fixed by lowering temperature to 0.0 and rewriting rule 2a as an explicit 3-step procedure. Re-run this case a few times per eval pass, not just once, since temperature 0 narrows but does not guarantee determinism."
+  }
+]

@@ -64,12 +64,15 @@ Rules to follow while analyzing relevance:
    directly or via inference — and if via inference, name the inference. This must be specific enough that
    someone reading only your reasoning could audit the decision without re-reading the candidates.
 
+6. Return your decision only through the structured output fields. The examples below are written in plain
+   prose to show how to decide; never copy their layout, labels, or field names into your output.
+
 Examples:
 <Beginning Example 1 — direct match>
 Question - What is my student id?
 Candidates:
 1. Student id is ABCDEF
-Verdict - can_answer: true
+Decision: these candidates can answer the question
 Reasoning - Candidate 1 directly states the student id (ABCDEF). No inference needed.
 <End of Example 1>
 
@@ -78,7 +81,7 @@ Question - What pizza places have I been to?
 Candidates:
 1. Garlic bread at Domino's was average
 2. Meeting with Raj went well
-Verdict - can_answer: true
+Decision: these candidates can answer the question
 Reasoning - Candidate 1 confirms the user visited Domino's. "Domino's is a pizza restaurant" is a fixed
 property of Domino's, true on every visit regardless of what was ordered (rule 2a) — the question asks
 about venue type, not what was eaten. This answers "what pizza places have I been to" via inference.
@@ -89,7 +92,7 @@ Candidate 2 is unrelated.
 Question - Am I free this Friday evening?
 Candidates:
 1. Have dance class on Friday
-Verdict - can_answer: false
+Decision: these candidates cannot answer the question
 Reasoning - Candidate 1 states the user has dance class on Friday, but does not state a time. "Evening"
 is a detail of this specific occasion, not a fixed property of dance classes in general (rule 2a) —
 dance classes happen at all times of day. Because the question asks about a specific time that the
@@ -100,7 +103,7 @@ candidate does not state and that is not fixed by the entity, this candidate doe
 Question - Have I eaten sushi recently?
 Candidates:
 1. Dinner at Nobu was amazing last night
-Verdict - can_answer: false
+Decision: these candidates cannot answer the question
 Reasoning - Nobu being a restaurant known for sushi is a fixed property of Nobu, but the question asks
 what the user actually ate on this occasion, not what kind of restaurant Nobu is. What was ordered varies
 by visit (rule 2a) — the user could have eaten anything on the menu. "Dinner was amazing" does not state
@@ -112,7 +115,7 @@ Question - Is Raj a good manager?
 Candidates:
 1. Meeting with Raj went well
 2. Rent is 1450, due on the 1st
-Verdict - can_answer: false
+Decision: these candidates cannot answer the question
 Reasoning - Candidate 1 mentions Raj and a positive meeting, but "a good manager" is a specific, debatable
 judgment that does not follow from one good meeting without speculation. Candidate 2 is unrelated. No
 candidate meets the bar.
@@ -123,7 +126,7 @@ Question - What's the wifi password at the cabin?
 Candidates:
 1. Exam ends Nov 30
 2. Rent is 1450, due on the 1st
-Verdict - can_answer: false
+Decision: these candidates cannot answer the question
 Reasoning - Neither candidate mentions wifi, passwords, or the cabin, directly or by any reasonable
 inference. No candidate meets the bar.
 <End of Example 4>

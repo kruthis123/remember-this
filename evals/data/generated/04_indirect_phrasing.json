@@ -1,0 +1,142 @@
+[
+  {
+    "case_id": "ip_01",
+    "category": "indirect_phrasing",
+    "variant": "own_content",
+    "feed_messages": [
+      "Dmitri fixed the leak under the kitchen sink, his number is 555-0142.",
+      "The electrician who rewired the garage was booked through Handy.",
+      "Our landscaper comes every other Tuesday."
+    ],
+    "question": "Who do I call if the pipes start dripping again?",
+    "reference_answer": "Dmitri, 555-0142",
+    "check_verbatim": false,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "ip_02",
+    "category": "indirect_phrasing",
+    "variant": "own_content",
+    "feed_messages": [
+      "Mum's allergic to lilies, so no lilies in anything I send her.",
+      "Dad likes his coffee black with no sugar.",
+      "My sister is vegetarian since last year."
+    ],
+    "question": "What should I leave out of a bouquet for my mother?",
+    "reference_answer": "lilies",
+    "check_verbatim": false,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "ip_03",
+    "category": "indirect_phrasing",
+    "variant": "own_content",
+    "feed_messages": [
+      "Our dog Biscuit sees Dr. Okafor at Maple Street Animal Clinic.",
+      "My GP is Dr. Harlow at the Riverside practice.",
+      "The kids' dentist is Dr. Chen on 5th Avenue."
+    ],
+    "question": "Who handles the pup's checkups?",
+    "reference_answer": "Dr. Okafor at Maple Street Animal Clinic",
+    "check_verbatim": false,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "ip_04",
+    "category": "indirect_phrasing",
+    "variant": "own_content",
+    "feed_messages": [
+      "Parked on level 3, section blue, at the airport garage.",
+      "The hotel shuttle leaves from door 6 every 20 minutes.",
+      "Our gate for the outbound flight was B14."
+    ],
+    "question": "Where do I go to find my car when I land back home?",
+    "reference_answer": "level 3, section blue, at the airport garage",
+    "check_verbatim": false,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "ip_05",
+    "category": "indirect_phrasing",
+    "variant": "own_content",
+    "feed_messages": [
+      "The spare house key is under the green flowerpot by the back door.",
+      "The mailbox key is on the hook in the hallway.",
+      "The shed padlock combination is written inside the garage cabinet."
+    ],
+    "question": "If I'm ever locked out, what's my backup way in?",
+    "reference_answer": "the spare key under the green flowerpot by the back door",
+    "check_verbatim": false,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "ip_06",
+    "category": "indirect_phrasing",
+    "variant": "common_knowledge",
+    "feed_messages": [
+      "Had lunch at Nando's with Jess today.",
+      "Grabbed dinner at Olive Garden with the team.",
+      "Tried the new ramen spot, Ippudo, on Friday."
+    ],
+    "question": "Which chicken restaurant have I been to?",
+    "reference_answer": "Nando's",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "ip_07",
+    "category": "indirect_phrasing",
+    "variant": "common_knowledge",
+    "feed_messages": [
+      "Bought new running shoes from Decathlon.",
+      "Picked up groceries at Trader Joe's.",
+      "Got a new phone case from Best Buy."
+    ],
+    "question": "Which sporting goods store have I shopped at?",
+    "reference_answer": "Decathlon",
+    "check_verbatim": true,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "ip_08",
+    "category": "indirect_phrasing",
+    "variant": "common_knowledge",
+    "feed_messages": [
+      "My cousin just moved to Kyoto.",
+      "My best friend relocated to Lyon last spring.",
+      "My brother lives in Melbourne now."
+    ],
+    "question": "Who do I know that lives in Japan?",
+    "reference_answer": "my cousin, in Kyoto",
+    "check_verbatim": false,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "ip_09",
+    "category": "indirect_phrasing",
+    "variant": "common_knowledge",
+    "feed_messages": [
+      "We're flying Qantas to visit my in-laws.",
+      "Booked Lufthansa for the work trip in May.",
+      "Took Southwest to Denver for the conference."
+    ],
+    "question": "Which trip am I taking on an Australian airline?",
+    "reference_answer": "the trip to visit my in-laws",
+    "check_verbatim": false,
+    "expect_abstention": false
+  },
+  {
+    "case_id": "ip_10",
+    "category": "indirect_phrasing",
+    "variant": "common_knowledge",
+    "feed_messages": [
+      "Signed up for Duolingo to practice my Spanish.",
+      "Started using Strava for my morning runs.",
+      "Downloaded Headspace for meditation."
+    ],
+    "question": "What am I learning on the app with the green owl?",
+    "reference_answer": "Spanish",
+    "check_verbatim": false,
+    "expect_abstention": false
+  }
+]
