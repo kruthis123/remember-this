@@ -26,9 +26,11 @@ class Settings(BaseSettings):
 
     prompt_version: str = Field(default="v1")
 
-    # These are guesses and will be revisited after experimentation
-    strict_threshold: float = Field(default=0.65, ge=0.0, le=1.0)
-    relaxed_threshold: float = Field(default=0.5, ge=0.0, le=1.0)
+    # Chosen from a threshold sweep over the step-8 eval dataset (61 cases), repeated
+    # 3x per candidate pair to separate real effect from run-to-run noise. See
+    # docs/build/step-08-threshold-sweep.md for the full results.
+    strict_threshold: float = Field(default=0.60, ge=0.0, le=1.0)
+    relaxed_threshold: float = Field(default=0.45, ge=0.0, le=1.0)
     embedding_retrieval_limit: int = Field(default=20)
 
     rate_limit_per_user_per_hour: int = Field(default=30, gt=0)

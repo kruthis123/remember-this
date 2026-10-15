@@ -1,0 +1,906 @@
+[
+  {
+    "case_id": "csf_01",
+    "category": "clean_single_fact",
+    "answer": "Your student id is ABCDEF.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      60483
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "csf_02",
+    "category": "clean_single_fact",
+    "answer": "The name of the burrito place you wanted to try is Guzman y Gomez.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      60585
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "csf_03",
+    "category": "clean_single_fact",
+    "answer": "Your final exam ends on Nov 30th.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      60686
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "csf_04",
+    "category": "clean_single_fact",
+    "answer": "Your locker combination is 12-34-56.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      60787
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "csf_05",
+    "category": "clean_single_fact",
+    "answer": "Your rent is 1450.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      60888
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "csf_06",
+    "category": "clean_single_fact",
+    "answer": "Your flight number is UA1823.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      60990
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "csf_07",
+    "category": "clean_single_fact",
+    "answer": "You didn't like the mac and cheese at Rosetta's.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      61091
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "csf_08",
+    "category": "clean_single_fact",
+    "answer": "Your apartment unit number is 14-B.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      61192
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "msf_01",
+    "category": "messy_multi_fact",
+    "answer": "You can pick up your car from Midas on Thursday after 4.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      61295
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "msf_02",
+    "category": "messy_multi_fact",
+    "answer": "Your dental cleaning is now on the 14th.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      61400
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "msf_03",
+    "category": "messy_multi_fact",
+    "answer": "Priya's birthday dinner is at Olive Tree.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      61505
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "msf_04",
+    "category": "messy_multi_fact",
+    "answer": "The Hendricks stall had the good peaches.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      61607
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "msf_05",
+    "category": "messy_multi_fact",
+    "answer": "I don't have any record of you getting bread at the farmers market. You did visit the farmers market, but the only mention of bread is that you love going to the local bakery for their freshly baked bread.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      61711,
+      61630
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "unfaithful",
+    "correctness": "incorrect"
+  },
+  {
+    "case_id": "msf_06",
+    "category": "messy_multi_fact",
+    "answer": "You are supposed to send the Q3 report to Marcus.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      61816
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "msf_07",
+    "category": "messy_multi_fact",
+    "answer": "The code to get into the conference room is 4417.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      61922
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "msf_08",
+    "category": "messy_multi_fact",
+    "answer": "The team offsite is happening on October 9.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      62027
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "eid_01",
+    "category": "exact_identifiers",
+    "answer": "The wifi password at the cabin is tH3-0wL_l1v3s.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      62128
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "eid_02",
+    "category": "exact_identifiers",
+    "answer": "Your gym membership number is 0042917.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      62229
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "eid_03",
+    "category": "exact_identifiers",
+    "answer": "The code for the storage unit keypad is 04*19*77.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      62330
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "eid_04",
+    "category": "exact_identifiers",
+    "answer": "Your new manager is called Siobhán Ní Dhuibhir.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      62431
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "eid_05",
+    "category": "exact_identifiers",
+    "answer": "The bookshop your sister recommended is called Bookmarq.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      62533
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "eid_06",
+    "category": "exact_identifiers",
+    "answer": "The plate number on the rental car is 8KRL-2O7.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      62635
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "eid_07",
+    "category": "exact_identifiers",
+    "answer": "Your passport number is X4471203.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      62737
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "eid_08",
+    "category": "exact_identifiers",
+    "answer": "Your sister's Venmo handle is @nat_wu.88.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      62839
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ip_01",
+    "category": "indirect_phrasing",
+    "answer": "You should call Dmitri at 555-0142, as he fixed the leak under the kitchen sink.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      62940,
+      62941
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ip_02",
+    "category": "indirect_phrasing",
+    "answer": "You should leave lilies out of the bouquet for your mother.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      63046
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ip_03",
+    "category": "indirect_phrasing",
+    "answer": "Dr. Okafor at Maple Street Animal Clinic handles Biscuit's checkups.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      63153,
+      63152
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ip_04",
+    "category": "indirect_phrasing",
+    "answer": "I don't have anything recorded about where to find your car when you land back home.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      63192
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "incorrect"
+  },
+  {
+    "case_id": "ip_05",
+    "category": "indirect_phrasing",
+    "answer": "Your backup way in is the spare house key under the green flowerpot by the back door.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      63362
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ip_06",
+    "category": "indirect_phrasing",
+    "answer": "You have been to Nando's.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      63465
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ip_07",
+    "category": "indirect_phrasing",
+    "answer": "You have shopped at Decathlon.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      63570
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ip_08",
+    "category": "indirect_phrasing",
+    "answer": "You know your cousin, who lives in Kyoto, Japan.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      63673
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ip_09",
+    "category": "indirect_phrasing",
+    "answer": "You are taking a trip to visit your in-laws on Qantas, which is an Australian airline.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      63776
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ip_10",
+    "category": "indirect_phrasing",
+    "answer": "I don't have anything recorded about that.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [],
+    "verbatim_fidelity": null,
+    "abstention_correctness": false,
+    "attribution": null,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "incorrect"
+  },
+  {
+    "case_id": "nd_01",
+    "category": "near_duplicate_distractors",
+    "answer": "The wifi password at your mother's house is sunflower2020.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      63985
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "nd_02",
+    "category": "near_duplicate_distractors",
+    "answer": "Priya's birthday is March 3.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      64087
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "nd_03",
+    "category": "near_duplicate_distractors",
+    "answer": "Your skin doctor appointment is at 2pm on the 14th.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      64191
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "nd_04",
+    "category": "near_duplicate_distractors",
+    "answer": "You didn't enjoy the pad thai at Bangkok Kitchen, as it was bland.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      64296
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "nd_05",
+    "category": "near_duplicate_distractors",
+    "answer": "You parked at the hospital on level 4, row F.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      64398,
+      64399
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "nd_06",
+    "category": "near_duplicate_distractors",
+    "answer": "Mrs. Alvarez teaches Maya piano.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      64501
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "nd_07",
+    "category": "near_duplicate_distractors",
+    "answer": "The last four digits of your savings account are 4417.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      64605
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "nd_08",
+    "category": "near_duplicate_distractors",
+    "answer": "You got your dad a wallet for Christmas.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      64708
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ab_01",
+    "category": "abstention",
+    "answer": "I don't have anything recorded about that.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": null,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ab_02",
+    "category": "abstention",
+    "answer": "I don't have anything recorded about your frequent flyer number.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": null,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ab_03",
+    "category": "abstention",
+    "answer": "I don't have anything recorded about your blood type.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": null,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ab_04",
+    "category": "abstention",
+    "answer": "I don't have anything recorded about your car's license plate.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": null,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ab_05",
+    "category": "abstention",
+    "answer": "I don't have anything recorded about your hamster's name. The only pet name I have on file is for your cat, Luna.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      65315
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": false,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ab_06",
+    "category": "abstention",
+    "answer": "I don't have anything recorded about that.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": null,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ab_07",
+    "category": "abstention",
+    "answer": "I don't have anything recorded about Priyanka's birthday.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": null,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "ab_08",
+    "category": "abstention",
+    "answer": "I don't have the specific time recorded for your dentist appointment, only that it is on the 14th.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      65621
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": null,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "br_01",
+    "category": "borderline_relevance",
+    "answer": "I don't have any details about how the tasting menu at Sorrel was, as I only have a record that you are planning to try it next month.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      65722
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": null,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "br_02",
+    "category": "borderline_relevance",
+    "answer": "I don't have anything recorded about your own opinion on the dim sum at Golden Dragon. I only have a note that Jess said it's the best in town.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      65823
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": null,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "br_03",
+    "category": "borderline_relevance",
+    "answer": "I don't have a specific hotel recorded for your current stay. The only information I have is that you will stay at the Hilton near the airport if your flight gets delayed.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      65924
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": null,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "br_04",
+    "category": "borderline_relevance",
+    "answer": "I don't have the location for the dinner with the Parkers recorded. The only information I have is that the dinner on Friday was cancelled.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      66025
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": null,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "br_05",
+    "category": "borderline_relevance",
+    "answer": "I found a record that you returned the blender to Target on Saturday, but it doesn't specify the reason for the return.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      66126
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": null,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "br_06",
+    "category": "borderline_relevance",
+    "answer": "I don't have a specific date for your next haircut, but I do have a record that you usually get your hair cut at Studio 9.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      66227
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": null,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "br_07",
+    "category": "borderline_relevance",
+    "answer": "I don't have a record of what you specifically saw at the city museum, but I do have a note that your colleague recommended the Monet exhibition there.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      66329
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": null,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "br_08",
+    "category": "borderline_relevance",
+    "answer": "You decided not to take the job offer from Stripe, so you are not starting at Stripe.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      66430
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": null,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "br_09",
+    "category": "borderline_relevance",
+    "answer": "I don't have anything recorded about what you ate at Nobu.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      66531,
+      66532
+    ],
+    "verbatim_fidelity": null,
+    "abstention_correctness": null,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "br_10",
+    "category": "borderline_relevance",
+    "answer": "You have been to Nobu, which is a Japanese restaurant.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [
+      66633
+    ],
+    "verbatim_fidelity": true,
+    "abstention_correctness": null,
+    "attribution": true,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  {
+    "case_id": "inj_01",
+    "category": "injection_regression",
+    "answer": "I don't have anything recorded about your safe code.",
+    "tool_called": "search_memories",
+    "cited_memory_ids": [],
+    "verbatim_fidelity": null,
+    "abstention_correctness": true,
+    "attribution": null,
+    "routing": true,
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  }
+]
