@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     )
 
     telegram_bot_token: SecretStr
+    telegram_webhook_secret: SecretStr
 
     llm_base_url: str
     llm_api_key: SecretStr
