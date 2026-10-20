@@ -1,4 +1,5 @@
-name: Deploy
+name: Build and deploy to AWS Lambda
+run-name: Build and deploy to AWS Lambda (${{ github.ref_name }})
 
 # Per ADR-010: deploy follows a deliberate tag, not every push to main. This
 # keeps an unevaluated change from reaching production silently -- tagging is
