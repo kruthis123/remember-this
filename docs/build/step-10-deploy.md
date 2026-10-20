@@ -293,6 +293,11 @@ happened before the tag; that gap is unchanged by this step and not something to
   to a now-closed loop. Keep one persistent loop at module scope instead.
 - A green `create-function`/`update-function-code` call is not proof the service works — check CloudWatch
   Logs for the actual invocation, same caution the original Cloud-Run-era doc gave for Cloud Run's own logs.
+- The function's architecture (`arm64`, chosen to match the local build machine) must match the image
+  architecture built in CI. GitHub-hosted runners default to `amd64`; an `amd64` image pushed to an `arm64`
+  function deploys successfully and only fails at invoke time with `Runtime.InvalidEntrypoint`, which gives
+  no hint that the real cause is architecture, not code. Build with `docker build --platform linux/arm64`
+  in the workflow to match.
 
 ## Done when
 

@@ -35,7 +35,11 @@ jobs:
         env:
           REGISTRY: ${{ steps.ecr-login.outputs.registry }}
         run: |
-          docker build --provenance=false --sbom=false \
+          # --platform must match the Lambda function's own architecture
+          # (arm64) -- the GitHub-hosted runner defaults to amd64, and a
+          # mismatched image fails at invoke time with a cryptic
+          # Runtime.InvalidEntrypoint rather than a clear architecture error.
+          docker build --platform linux/arm64 --provenance=false --sbom=false \
             -t "$REGISTRY/$ECR_REPOSITORY:$GITHUB_SHA" \
             -t "$REGISTRY/$ECR_REPOSITORY:latest" .
           docker push "$REGISTRY/$ECR_REPOSITORY:$GITHUB_SHA"
