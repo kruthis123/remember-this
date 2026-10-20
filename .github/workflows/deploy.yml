@@ -31,6 +31,15 @@ jobs:
       - uses: aws-actions/amazon-ecr-login@v2
         id: ecr-login
 
+      # The runner is amd64; building an arm64 image (to match the Lambda
+      # function's architecture) requires QEMU emulation for the RUN steps,
+      # which buildx does not set up by default.
+      - uses: docker/setup-qemu-action@v3
+        with:
+          platforms: arm64
+
+      - uses: docker/setup-buildx-action@v3
+
       - name: Build and push image
         env:
           REGISTRY: ${{ steps.ecr-login.outputs.registry }}
@@ -39,11 +48,10 @@ jobs:
           # (arm64) -- the GitHub-hosted runner defaults to amd64, and a
           # mismatched image fails at invoke time with a cryptic
           # Runtime.InvalidEntrypoint rather than a clear architecture error.
-          docker build --platform linux/arm64 --provenance=false --sbom=false \
+          docker buildx build --platform linux/arm64 --provenance=false --sbom=false \
             -t "$REGISTRY/$ECR_REPOSITORY:$GITHUB_SHA" \
-            -t "$REGISTRY/$ECR_REPOSITORY:latest" .
-          docker push "$REGISTRY/$ECR_REPOSITORY:$GITHUB_SHA"
-          docker push "$REGISTRY/$ECR_REPOSITORY:latest"
+            -t "$REGISTRY/$ECR_REPOSITORY:latest" \
+            --push .
 
       - name: Update Lambda function
         env:

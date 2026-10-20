@@ -296,8 +296,13 @@ happened before the tag; that gap is unchanged by this step and not something to
 - The function's architecture (`arm64`, chosen to match the local build machine) must match the image
   architecture built in CI. GitHub-hosted runners default to `amd64`; an `amd64` image pushed to an `arm64`
   function deploys successfully and only fails at invoke time with `Runtime.InvalidEntrypoint`, which gives
-  no hint that the real cause is architecture, not code. Build with `docker build --platform linux/arm64`
-  in the workflow to match.
+  no hint that the real cause is architecture, not code.
+- Building an `arm64` image on an `amd64` runner needs `docker/setup-qemu-action` first. Without it, buildx
+  can pull and extract `arm64` base-image layers (no execution needed for that) but any `RUN` step fails
+  with `exec /bin/sh: exec format error`, since running arm64 binaries on an amd64 host needs emulation
+  that isn't present by default. `--platform` on the `FROM` lines and on the `docker buildx build` command
+  controls what gets built; QEMU is what makes it possible to actually execute instructions for that target
+  while building.
 
 ## Done when
 
