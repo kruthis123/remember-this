@@ -1,0 +1,15 @@
+.venv
+.env
+.env.example
+.git
+__pycache__
+**/__pycache__
+*.pyc
+.kiro
+evals/data/
+evals/
+tests/
+scripts/
+docs/
+*.md
+.python-version

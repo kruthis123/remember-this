@@ -18,8 +18,8 @@ they are teaching documents assuming no prior familiarity with the libraries inv
 | 6 | Agent wiring — Pydantic AI, the two tools, loop bounds | done (clarification tool deferred, see ADR-002 amendment) | `docs/build/step-06-agent-wiring.md` |
 | 7 | Observability — Langfuse tracing across every step | done (see note below) | `docs/build/step-07-observability.md` |
 | 8 | Eval dataset generation and harness | done | `docs/build/step-08-eval-harness.md`, `step-08-metrics.md`, `step-08-hand-labelling.md`, `step-08-threshold-sweep.md` |
-| 9 | Telegram bot — webhook, handlers, inline keyboards, idempotency | code done, needs a real end-to-end Telegram check (`register_webhook.py`) before marking fully done | `docs/build/step-09-telegram-bot.md` |
-| 10 | Deploy — Dockerfile, GitHub Actions on tag, Cloud Run | next | — |
+| 9 | Telegram bot — webhook, handlers, inline keyboards, idempotency | done — real end-to-end Telegram check passed against the live AWS deployment | `docs/build/step-09-telegram-bot.md` |
+| 10 | Deploy — Dockerfile, AWS Lambda (swapped from Cloud Run, see ADR-006 amendment), GitHub Actions on tag | manual deploy done and verified end-to-end; GitHub Actions workflow still to do | `docs/build/step-10-deploy.md` |
 
 Steps 1–8 produce a working, measured agent with no Telegram involved at all — deliberate, per ADR-001's
 eval-before-bot commitment. Telegram is wired in at step 9, after the eval loop already exists.
@@ -31,6 +31,14 @@ OTel span under `langfuse.trace.metadata.*`) but does not render visibly in the 
 these config values are currently static; if any of them change, note the change manually until the UI
 surfacing is resolved or a workaround is found. See `docs/build/agent-manual-test-findings.md` for the
 full investigation.
+
+**Step 10 known deviation:** the original design (ADR-006) specified Cloud Run. GCP required a billing
+account to be linked even for free-tier usage, which was declined, and AWS App Runner (the direct Cloud
+Run equivalent) stopped accepting new customers before this project reached step 10. The service now runs
+on AWS Lambda behind a Lambda Function URL instead — see ADR-006's amendment for the full reasoning and
+what changed in `remember_this/bot/webhook.py` as a result. `USER_ID_SALT` is still a placeholder value in
+the live deployment; it must be a real random secret before this is treated as more than a scratch
+deployment, since it's what keeps hashed user ids in Langfuse non-reversible.
 
 ## Time expectation
 

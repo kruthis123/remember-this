@@ -1,0 +1,52 @@
+name: Deploy
+
+# Per ADR-010: deploy follows a deliberate tag, not every push to main. This
+# keeps an unevaluated change from reaching production silently -- tagging is
+# an explicit act that is expected to follow a passing eval run.
+on:
+  push:
+    tags:
+      - "v*"
+
+env:
+  AWS_REGION: ap-southeast-1
+  ECR_REPOSITORY: remember-this
+  LAMBDA_FUNCTION_NAME: remember-this-bot
+
+permissions:
+  contents: read
+  id-token: write # required for OIDC -- no stored AWS credentials
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: aws-actions/configure-aws-credentials@v5
+        with:
+          role-to-assume: arn:aws:iam::084828585722:role/github-actions-deploy-remember-this
+          aws-region: ${{ env.AWS_REGION }}
+
+      - uses: aws-actions/amazon-ecr-login@v2
+        id: ecr-login
+
+      - name: Build and push image
+        env:
+          REGISTRY: ${{ steps.ecr-login.outputs.registry }}
+        run: |
+          docker build --provenance=false --sbom=false \
+            -t "$REGISTRY/$ECR_REPOSITORY:$GITHUB_SHA" \
+            -t "$REGISTRY/$ECR_REPOSITORY:latest" .
+          docker push "$REGISTRY/$ECR_REPOSITORY:$GITHUB_SHA"
+          docker push "$REGISTRY/$ECR_REPOSITORY:latest"
+
+      - name: Update Lambda function
+        env:
+          REGISTRY: ${{ steps.ecr-login.outputs.registry }}
+        run: |
+          aws lambda update-function-code \
+            --function-name "$LAMBDA_FUNCTION_NAME" \
+            --image-uri "$REGISTRY/$ECR_REPOSITORY:$GITHUB_SHA"
+          aws lambda wait function-updated \
+            --function-name "$LAMBDA_FUNCTION_NAME"

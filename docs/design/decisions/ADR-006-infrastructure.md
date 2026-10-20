@@ -79,3 +79,52 @@ update rate. Monthly cost, expected to be zero.
   cheap always-on host.
 - Local development friction from the single token becomes a drag — add a second bot token.
 - Family members lose memories they cared about — backups stop being optional.
+
+## Amendment (step 10, implementation time) — Cloud Run swapped for AWS Lambda
+
+Cloud Run requires a billing account linked to the GCP project even to stay within its free tier, and
+setting one up was declined. AWS App Runner — the direct Cloud Run equivalent considered here — stopped
+accepting new customers as of April 30, 2026, so it was not an available substitute either. The only
+remaining scale-to-zero, webhook-native, always-free option was AWS Lambda, which this project now uses
+in place of Cloud Run. Everything else this ADR decided — webhook transport, Neon Postgres, one bot
+token, no backups, the whole turn processed inside the request — is unchanged.
+
+The swap is bigger than a hosting-provider substitution: Lambda does not run an arbitrary web server, so
+`remember_this/bot/webhook.py` changed from a FastAPI app to a Lambda handler function invoked via a
+Lambda Function URL (Lambda's equivalent of a public HTTPS endpoint, chosen over API Gateway since no
+routing, auth, or request transformation beyond what the handler already does is needed). The handler is
+necessarily synchronous at the top level — Lambda does not support `async def` handlers — so it owns one
+persistent `asyncio` event loop at module scope, reused across warm invocations, since `asyncpg`'s
+connection pool is bound to the loop that created it and a fresh loop per invocation would leave the pool
+unusable after the first call. `handlers.py`, `command.py`, `telegram_client.py`, and `keyboards.py` were
+unaffected — they only ever depended on a plain `dict` update, never on FastAPI.
+
+Packaging also changed from "any image Cloud Run will run" to a Lambda-specific container built from
+`public.ecr.aws/lambda/python:3.12`, since this project's dependencies (`asyncpg`'s compiled extension,
+`pydantic-ai`, `langfuse`) are too large and too platform-specific for Lambda's 250MB zip-upload path.
+
+This is recorded as an amendment rather than a full ADR rewrite because the reasoning that chose a
+scale-to-zero webhook host in the first place is untouched; only which specific provider satisfies that
+reasoning changed, and only because of an availability constraint (App Runner) and a cost-of-entry
+constraint (GCP billing) neither anticipated when this ADR was first written.
+
+### Consequences of the amendment
+
+Easy: AWS Lambda's always-free tier (1M requests + 400,000 GB-seconds/month) comfortably covers this
+bot's traffic with no billing account required to get started. ECR's free tier covers the one image this
+project needs.
+
+Hard: the FastAPI-to-Lambda-handler rewrite is new surface that did not exist when this ADR was written,
+and it is AWS-specific in a way the original Cloud Run plan was not — moving hosts again would mean
+touching `webhook.py` again, not just redeploying. Lambda's own cold start (observed ~5.7s container init
+plus Neon's own wake time on the very first request) has not yet been formally separated from warm-path
+latency the way the "How this will be measured" section below commits to; that measurement is still
+owed.
+
+### Revisit trigger (amendment)
+
+- AWS Lambda's free tier changes materially, or GCP billing friction is resolved and Cloud Run becomes
+  simpler to pick up again.
+- The synchronous-handler-plus-persistent-event-loop pattern in `webhook.py` causes a hard-to-diagnose
+  bug under real concurrent traffic (Lambda can run multiple concurrent instances of the same function,
+  each with its own loop and pool — this has not yet been tested under concurrent invocations).
