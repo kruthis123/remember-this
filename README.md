@@ -2,8 +2,7 @@
 
 A small memory assistant that stores facts expressed in plain English and answers questions about them later —
 for example, "the Wi-Fi password at the cabin is ...", followed weeks later by "what is the Wi-Fi password
-at the cabin?". A Telegram interface is planned, but the current work focuses on the underlying agent and
-evaluation harness.
+at the cabin?". Runs as a Telegram bot.
 
 The main purpose of the project is to learn **LLM observability and evaluation**: tracing an LLM-driven
 system, building a dataset to measure it against, using LLM judges where deterministic checks are not enough,
@@ -20,23 +19,19 @@ validating those judges against human labels, and using the results to guide cha
 ## Current implementation
 
 The core agent is implemented in Python with [Pydantic AI](https://ai.pydantic.dev/). It uses Postgres with
-`pgvector` for storage and retrieval and [Langfuse](https://langfuse.com/) for tracing. LLM and embedding
-access use university-hosted, OpenAI-SDK-compatible endpoints.
-
-The storage, extraction, retrieval, answer generation, agent wiring, and observability steps are implemented.
-The evaluation dataset and harness are in progress. The Telegram interface and Cloud Run deployment have not
-been implemented yet.
+`pgvector` for storage and retrieval and [Langfuse](https://langfuse.com/) for tracing. The bot runs on AWS Lambda behind a Lambda
+Function URL, deployed via GitHub Actions on a tagged release.
 
 ## AI Use Declaration
 
-I am deliberately building this project with very little AI-generated code. I make the product, architecture,
-prompt, and evaluation decisions and write most of the implementation myself. I use AI as a learning and review
-assistant: to explain unfamiliar concepts, challenge design choices, review code, suggest debugging directions,
-and occasionally help with small, bounded pieces of code.
+I deliberately built this project with very little AI-generated code. I made the product, architecture,
+prompt, and evaluation decisions and wrote most of the implementation myself. I used AI as a learning and
+review assistant: to explain unfamiliar concepts, challenge design choices, review code, suggest debugging
+directions, and occasionally help with small, bounded pieces of code.
 
-Through this project I am learning how to define measurable LLM behavior, create and label evaluation data,
-trace failures across an agent workflow, design LLM-as-judge checks, compare them with human judgments, and use
-evaluation evidence rather than intuition to decide whether a change is an improvement.
+Through this project I learned how to define measurable LLM behavior, create and label evaluation data,
+trace failures across an agent workflow, design LLM-as-judge checks, compare them with human judgments, and
+use evaluation evidence rather than intuition to decide whether a change is an improvement.
 
 ## Documentation
 
@@ -47,4 +42,5 @@ evaluation evidence rather than intuition to decide whether a change is an impro
 
 ## Status
 
-In progress. The agent core exists, and the evaluation harness is the current focus.
+Built end to end and deployed. Ongoing work is refinement: tuning prompts and thresholds against the eval
+harness as real usage surfaces new cases.
