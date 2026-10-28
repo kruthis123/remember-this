@@ -22,6 +22,20 @@ The core agent is implemented in Python with [Pydantic AI](https://ai.pydantic.d
 `pgvector` for storage and retrieval and [Langfuse](https://langfuse.com/) for tracing. The bot runs on AWS Lambda behind a Lambda
 Function URL, deployed via GitHub Actions on a tagged release.
 
+## Eval results
+
+Latest run against the 61-case hand-built eval set, at the thresholds chosen from the sweep:
+
+| Metric | Result |
+|---|---|
+| Faithfulness (no fabricated detail) | 100% (61/61) |
+| Correctness | 88.5% (54/61) |
+| Verbatim fidelity (identifiers, proper nouns) | 95.8% (23/24) |
+| Abstention correctness | 94.0% (47/50) |
+| Attribution (cited memory supports the answer) | 100% (47/47) |
+| Routing (correct tool chosen) | 100% (61/61) |
+
+
 ## AI Use Declaration
 
 I deliberately built this project with very little AI-generated code. I made the product, architecture,
